@@ -8,7 +8,7 @@ See [TODO](Notes/TODO.md) for work to be done on XLray, in particular for proble
 
 ## How To
 
-[Use XLray over the web](HowTo/InstallOnWeb.md)  
+[Use XLray over the web](HowTo/UseOverWeb.md)  
 [Use XLray locally](HowTo/UseLocally.md)
 
 ## Issues
