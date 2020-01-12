@@ -39,4 +39,3 @@ To create a manifest for deployment, make a copy of `manifest.xml`, rename the c
 To create the application code, issue the command `npm run build`.  When the build completes, rename the generated `dist` folder to `XLray` and  upload it to `stageonesoftware.com`.
 
 Under Mac OS X, the manifests for add-ins obtained from Microsoft's AppSource are buried in the folder `~/Library/Containers/com.microsoft.Excel/Data/Library/Application Support/Microsoft/Office/16.0/Wef`.  See also <https://camerondwyer.com/2018/09/11/office-add-in-manifest-updates-deployment-timing-and-potential-url-issues/>.
-
