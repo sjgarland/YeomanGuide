@@ -8,23 +8,23 @@ See [TODO](Notes/TODO.md) for work to be done on XLray, in particular for proble
 
 ## How To
 
-[Use XLray over the web](HowTo/InstallOnWeb.md)
+[Use XLray over the web](HowTo/InstallOnWeb.md)  
 [Use XLray locally](HowTo/UseLocally.md)
 
 ## Issues
 
-[Issues with add-in appearance](Notes/Issues/Appearance.md)
-[Issues with add-in behavior](Notes/Issues/Behavior.md)
-[Issues with add-in debugging](Notes/Issues/Debugging.md)
-[Issues with add-in manifests](Notes/Issues/Manifest.md)
-[Issues with the Javascript APIs for Excel and Office](Notes/Issues/API.md)
+[Issues with add-in appearance](Notes/Issues/Appearance.md)  
+[Issues with add-in behavior](Notes/Issues/Behavior.md)  
+[Issues with add-in debugging](Notes/Issues/Debugging.md)  
+[Issues with add-in manifests](Notes/Issues/Manifest.md)  
+[Issues with the Javascript APIs for Excel and Office](Notes/Issues/API.md)  
 [Issues with tools for developing add-ins](Notes/Issues/Tools.md)
 
 ## Tools
 
-[Angular](Tools/Angular.md)
-[Markdown](Tools/Markdown.md)
-[Office 365](Tools/Office365.md)
+[Angular](Tools/Angular.md)  
+[Markdown](Tools/Markdown.md)  
+[Office 365](Tools/Office365.md)  
 [Visual Studio](Tools/VisualStudio.md)
 
 ## Modifications to the Yeoman template
