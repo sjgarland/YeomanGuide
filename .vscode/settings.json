@@ -1,0 +1,17 @@
+{
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript"
+    ],
+    "cSpell.words": [
+      "Setapp",
+      "lray",
+      "officeredir",
+      "subfolder",
+      "tutorialspoint",
+      "x",
+      "xlray"
+    ]
+  }
+  

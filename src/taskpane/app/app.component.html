@@ -1,0 +1,14 @@
+<p>
+    XLray provides a look inside an Excel add-in.  See the README file in its
+    GitHub repository for documentation.  To test add-in features,
+    modify the source files and click <span (click)="run()"><b>Refresh</b></span>.
+</p>
+<p>
+    The currently selected range is {{selectedRange}}.
+</p>
+<div>
+    <h3>Debugging log</h3>
+    <table>
+    <tr *ngFor ="let s of log()"><td>{{s}}</td></tr>
+    </table>
+</div>
