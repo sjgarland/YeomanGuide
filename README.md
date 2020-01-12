@@ -1,2 +1,2 @@
 # XLray
-Development tool for diagnosing problems with the Office 365 add-in architecture
+XLray exposes and documents problems that arise in developing add-ins for Office 365 Excel using Typescript and Angular.
