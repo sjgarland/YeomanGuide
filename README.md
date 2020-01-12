@@ -8,8 +8,8 @@ See [TODO](Notes/TODO.md) for work to be done on XLray, in particular for proble
 
 ## How To
 
-[Use XLray over the web](HowTo/UseOverWeb.md)  
-[Use XLray locally](HowTo/UseLocally.md)
+[Use XLray over the web](Notes/HowTo/UseOverWeb.md)  
+[Use XLray locally](Notes/HowTo/UseLocally.md)
 
 ## Issues
 
@@ -22,10 +22,10 @@ See [TODO](Notes/TODO.md) for work to be done on XLray, in particular for proble
 
 ## Tools
 
-[Angular](Tools/Angular.md)  
-[Markdown](Tools/Markdown.md)  
-[Office 365](Tools/Office365.md)  
-[Visual Studio](Tools/VisualStudio.md)
+[Angular](Notes/Tools/Angular.md)  
+[Markdown](Notes/Tools/Markdown.md)  
+[Office 365](Notes.Tools/Office365.md)  
+[Visual Studio](Notes/Tools/VisualStudio.md)
 
 ## Modifications to the Yeoman template
 
