@@ -2,13 +2,7 @@
 
 ## Deployment
 
-XLray runs as expected via `npm start` on `https://localhost:3000`, but it does not run when deployed on <https://stageonesoftware.com/XLray>.  
-
-The XLray icon does not appear with the occurrences of XLray in the `Home` tab and under `Insert > My Add-ins > Developer Add-ins`.  
-
-Excel pops up an error alert: _Custom UI Runtime Error in 53e30403-713a-4849-9398-ffd8ec33ec8c_developer  An error occurred while calling the callback: "OsfImg"_.
-
-The taskpane is empty.  Its console log shows _Error: Template parse errors: Can't bind to 'ngforOf' since it isn't a known property of 'tr'._
+When XLray uses the Angular `*ngFor` directive, it can be used from `localhost:3000` but not from <https://stageonesoftware.com/XLray>.  The console log for the task pane shows _Error: Template parse errors: Can't bind to 'ngforOf' since it isn't a known property of 'tr'_, Excel issues an error alert: _Custom UI Runtime Error in 53e30403-713a-4849-9398-ffd8ec33ec8c_developer  An error occurred while calling the callback: "OsfImg"_, and the XLray icon does not appear with the occurrences of XLray in the `Home` tab and under `Insert > My Add-ins > Developer Add-ins`.  
 
 Determine whether the add-in loader can find the  `*.component.html` and `*.component.css` files.
 
