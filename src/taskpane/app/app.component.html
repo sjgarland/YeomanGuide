@@ -8,7 +8,10 @@
 </p>
 <div>
     <h3>Debugging log</h3>
+    <!--  The production build does not recognize the *ngFor directive
     <table>
     <tr *ngFor ="let s of log()"><td>{{s}}</td></tr>
     </table>
+    -->
+    <div id="debuggingLog">{{logAsTable()}}</div>
 </div>

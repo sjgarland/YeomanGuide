@@ -6,7 +6,7 @@
 import { Component } from "@angular/core";
 import { Log } from "./log";
 const template = require("./app.component.html");
-/* global console, Excel, Office, require, window */
+/* global console, document, Excel, Office, require, window */
 /* eslint-disable no-constant-condition */
 
 @Component({
@@ -44,4 +44,11 @@ export default class AppComponent {
 
   public log(): string[] { return Log.get() }
   
+  public logAsTable(): string {
+    let s = '<table>';
+    for (const line of Log.get()) { s += '<tr><td>' + line + '</td></tr>'}
+    s += '</table>';
+    document.getElementById('debuggingLog').innerHTML = s;
+    return '';
+  }
 }
