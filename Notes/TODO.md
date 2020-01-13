@@ -1,28 +1,28 @@
 # Development tasks for XLray
 
+## Coding
+
+Try using additional  `*.component.html` and `*.component.css` files.  See if the add-in loader finds them.
+
+Modify the manifest so that it creates an XLray ribbon with actions for viewing the taskpane, popping up an About message, and changing an Excel setting.
+
+Try catching changes in Excel settings.  An approach that works is to mirror them in `localStorage` and poll for changes.  Can `localStorage` events be made to work?  Can Excel events be made to work?  See the issues about [settings](Issues/API.md##Settings).
+
+Try handling other Excel events: selection of a different cell, changes in the value of the displayed formula, insertion or deletion of a row or column.
+
+Try to show process numbers as part of the context (to see which components can communicate with which).
+
 ## Deployment
 
 When XLray uses the Angular `*ngFor` directive, it can be used from `localhost:3000` but not from <https://stageonesoftware.com/XLray>.  The console log for the task pane shows _Error: Template parse errors: Can't bind to 'ngforOf' since it isn't a known property of 'tr'_, Excel issues an error alert: _Custom UI Runtime Error in 53e30403-713a-4849-9398-ffd8ec33ec8c_developer  An error occurred while calling the callback: "OsfImg"_, and the XLray icon does not appear with the occurrences of XLray in the `Home` tab and under `Insert > My Add-ins > Developer Add-ins`.  
 
-Determine whether the add-in loader can find the  `*.component.html` and `*.component.css` files.
-
-Figure out how to publish add-ins:
-
-- generate and manage a license (and other boiler plate)
-- check the user's license (possibly in the callback from `Office.initialize`)
-- protect IP (e.g. by code obfuscation)
-
-Share on GitHub and in AppSource (so that we can post questions/comments about it to stackoverflow).
+Share in AppSource.  Enable posting questions/comments about it to stackoverflow.
 
 ## Investigation and documentation
 
 Check usage of Supertip titles and descriptions by the different versions of Excel.  Check usage of ribbon group icons.
 
 Investigate differences between the builders employed by `ng`, `npm`, `webpack`, and `yarn`.
-
-## Diagnostic code
-
-Try to show process numbers as part of the context (to see which components can communicate with which).
 
 ## Taskpane width
 
@@ -34,6 +34,8 @@ There’s one more thing to try: adding a control to the task pane that pops up 
 
 ## Other issues
 
+See the issues about [screen updating](Issues/API.md##Screen-updating).
+
 Make the title bar for the task pane stand out from its contents in Excel for the web, where both have a white background.  A gray background makes it stand out in Excel for Windows and the Mac.  Potential solution: give the line at the top of the pane a different background color.
 
 Investigate former problems with scrollbars.
@@ -44,16 +46,3 @@ Investigate former problems with scrollbars.
 - Scrollbar for templates does not scroll all the way to the bottom.
 
 Investigate former problem with runaway text selection/highlighting by the browser.
-
-## Events
-
-Investigate using `localStorage` events to notice changes without having to poll `localStorage` in `AppComponent`.
-
-Decide whether (and how) to handle Excel events: selection of a different cell, changes in the value of the displayed formula, insertion or deletion of a row or column.
-
-## JavaScript API for Excel
-
-- Try to turn off screen updating for the formula bar, for the value in the cell containing the formula, and for any chart that uses that value.
-- The property `Application.ScreenUpdating` in the Visual Basic API would be useful, but it does not exist in the JavaScript API.
-- The JavaScript API has a method for suspending screen updating until the next `sync`, but it needs to be suspended until all values have been computed.
-- It doesn't help to inhibit Excel events by setting `context.runtime.enableEvents = false;`.
