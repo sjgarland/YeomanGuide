@@ -6,4 +6,4 @@ echo "*** Building runtime"
 npm run build
 /bin/rm -rf XLray
 /bin/mv dist XLray
-echo "*** Upload XLray to stageonesoftware.com"
+echo "*** Upload XLray and xlray.xml to stageonesoftware.com"
