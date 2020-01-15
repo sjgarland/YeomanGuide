@@ -6,6 +6,8 @@ There are severe restrictions on the size of a task pane.  It is impossible to c
 
 The width of the taskpane [cannot be increased in Office for the web](https://officespdev.uservoice.com/forums/224641-feature-requests-and-feedback/suggestions/33088669-ability-to-resize-task-pane-in-word-online-mac-an>).
 
+Replacing the taskpane with a dialog window, which is non-modal and has unlimited width, does not help because no formula is displayed in the window.  Microsoft documentation states (somewhere) that dialog boxes can communicate with Excel only when opened from a taskpane; the [Office.UI interface](https://docs.microsoft.com/en-us/javascript/api/office/office.ui) cautions not to "use a dialog box to interact with a document.  Use a task pane instead."  See also [Using the Dialog API](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/dialog-api-in-office-add-ins).
+
 ## Other issues
 
 Add-ins do not present a uniform appearance across different platforms.

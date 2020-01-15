@@ -1,16 +1,24 @@
 # Development tasks for XLray
 
+## Configuration
+
+Investigate configuration problems with `tsconfig.json` and `webpack.config.js`.  See the documentation for [Angular in Depth](https://medium.com/angular-in-depth/configuring-typescript-compiler-a84ed8f87e3).
+
+- Why can't the loader find `monitor.component.html` when there is code (currently commented out) in `app.component.ts`, `monitor.component.ts`, and `webpack.config.ts`?
+- What is the purpose of the compiler option `"jsx": "react"` when not using React?
+- How does [module resolution work](https://www.typescriptlang.org/docs/handbook/module-resolution.html)?
+
+Investigate [code splitting](https://webpack.js.org/guides/code-splitting/).
+
 ## Coding
 
-Try using additional  `*.component.html` and `*.component.css` files.  See if the add-in loader finds them.
+Modify the manifest so that it creates an XLray ribbon with actions for viewing the taskpane, popping up an _About_ message, and changing an Excel setting.
 
-Modify the manifest so that it creates an XLray ribbon with actions for viewing the taskpane, popping up an About message, and changing an Excel setting.
+Catch and report changes in Excel settings.  It works to mirror them in `localStorage` and poll for changes.  Can `localStorage` events be used instead of polling?  Can Excel events be made to work?  See the issues about [settings](Issues/API.md##Settings).
 
-Try catching changes in Excel settings.  An approach that works is to mirror them in `localStorage` and poll for changes.  Can `localStorage` events be made to work?  Can Excel events be made to work?  See the issues about [settings](Issues/API.md##Settings).
+Catch and report other Excel events: selection of a different cell, changes in the value of the displayed formula, insertion or deletion of a row or column.
 
-Try handling other Excel events: selection of a different cell, changes in the value of the displayed formula, insertion or deletion of a row or column.
-
-Try to show process numbers as part of the context (to see which components can communicate with which).
+Show other information, if it exists: decoded license information, user identity, process numbers (as part of the context to see which components can communicate with which).
 
 ## Deployment
 
@@ -24,15 +32,9 @@ Check usage of Supertip titles and descriptions by the different versions of Exc
 
 Investigate differences between the builders employed by `ng`, `npm`, `webpack`, and `yarn`.
 
-## Taskpane width
-
-The taskpane [cannot be resized in Office for the web](https://officespdev.uservoice.com/forums/224641-feature-requests-and-feedback/suggestions/33088669-ability-to-resize-task-pane-in-word-online-mac-an>).
-
-Replacing the taskpane with a dialog window, which has unlimited width, does not work: no formula is displayed in the window.  Microsoft documentation states (somewhere) that dialog boxes can communicate with Excel only when opened from a taskpane; the [Office.UI interface](https://docs.microsoft.com/en-us/javascript/api/office/office.ui) cautions not to "use a dialog box to interact with a document.  Use a task pane instead."  See also [Using the Dialog API](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/dialog-api-in-office-add-ins).
-
-There’s one more thing to try: adding a control to the task pane that pops up a modal window that may be able to communicate with Excel, but will disappear when the user clicks outside the window.
-
 ## Other issues
+
+Try to solve the [task pane width problem](Issues/Appearance.md##Major-issues) by adding a control to the task pane.  This control would pop up a dialog window that may be able to communicate with Excel.  Try to make this window non-modal, like ones created in `commands.html`, so that it will not disappear when the user clicks outside the window.
 
 See the issues about [screen updating](Issues/API.md##Screen-updating).
 
