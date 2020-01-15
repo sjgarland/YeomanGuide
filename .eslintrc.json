@@ -8,7 +8,8 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "comment": "project ./tsconfig.json"
     },
   "extends": [
     "eslint-config-office-addins"
