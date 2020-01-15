@@ -1,6 +1,6 @@
-# Local use
+# Testing XLray
 
-These notes describe how to install and use a local development version of the XLray add-in for the Office 365 version of Excel.  See the simpler [Web-based installation instructions](WebInstallation.md).
+These notes describe how to test XLray using a local web server.  See the simpler [instructions](Use.md) for how to use XLray with a remote server.
 
 ## Required infrastructure
 

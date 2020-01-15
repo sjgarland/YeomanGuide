@@ -1,6 +1,6 @@
-# Web use
+# Using XLray
 
-These notes describe how to use XLray over the web with various versions of Office 365 Excel.
+These notes describe how to use XLray over the web.
 
 Pending the availability of XLray in Microsoft's AppSource, it is necessary to download the file `xlray.xml` from this repository and then follow the instructions given here for the different versions of Excel.
 
