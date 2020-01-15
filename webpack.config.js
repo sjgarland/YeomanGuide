@@ -1,12 +1,11 @@
+/* global module, process, require */
+
 const devCerts = require("office-addin-dev-certs");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const fs = require("fs");
-const webpack = require("webpack");
 
 module.exports = async (env, options) => {
-  const dev = options.mode === "development";
   const config = {
     devtool: "source-map",
     entry: {
@@ -47,6 +46,13 @@ module.exports = async (env, options) => {
         template: "./src/taskpane/taskpane.html",
         chunks: ["polyfill", "taskpane"]
       }),
+      /*
+      new HtmlWebpackPlugin({
+        filename: "monitor.html",
+        template: "./src/taskpane/app/monitor/monitor.component.html",
+        chunks: ["polyfill", "monitor"]
+      }),
+      */
       new CopyWebpackPlugin([
         {
           to: "taskpane.css",
