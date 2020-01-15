@@ -1,21 +1,21 @@
 
 <p>
     <a href="https://github.com/sjgarland/XLray">XLray</a>
-    is an open source add-in that looks inside itself.  Click 
-    <span (click)="run()"><b>Refresh</b></span> after modifying
-    its source files or interacting with Excel.
+    is an open source add-in that looks inside itself.
 </p>
 
 <!-- <monitor></monitor> -->
-<p>
-    The currently selected range is {{selectedRange}}.
-</p>
+<div>
+    <h3>Excel monitor</h3>
+    <p>The currently selected range is {{selectedRange}}.</p>
+    <p>Click <span (click)="run()"><em>here</em></span> to refresh the monitor.</p>
+</div>
 <div>
     <h3>Debugging log</h3>
     <!--  The production build does not recognize the *ngFor directive
-    <table>
-    <tr *ngFor ="let s of log()"><td>{{s}}</td></tr>
-    </table>
+        <table>
+            <tr *ngFor ="let s of log()"><td>{{s}}</td></tr>
+        </table>
     -->
     <div id="debuggingLog">{{logAsTable()}}</div>
 </div>
