@@ -29,6 +29,7 @@ export default class AppComponent {
       version++;
     }
     Log.add('ExcelApi version 1.' + version.toString());
+    this.run();
   }
 
   async run() {
