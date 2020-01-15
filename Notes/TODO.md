@@ -12,7 +12,7 @@ Investigate [code splitting](https://webpack.js.org/guides/code-splitting/).
 
 ## Coding
 
-Modify the manifest so that it creates an XLray ribbon with actions for viewing the taskpane, popping up an _About_ message, and changing an Excel setting.
+Modify the manifest so that it creates an XLray ribbon with actions for viewing the taskpane, popping up an _About_ message, and changing an Excel setting.  Create better icons.
 
 Catch and report changes in Excel settings.  It works to mirror them in `localStorage` and poll for changes.  Can `localStorage` events be used instead of polling?  Can Excel events be made to work?  See the issues about [settings](Issues/API.md##Settings).
 
@@ -31,6 +31,8 @@ Share in AppSource.  Enable posting questions/comments about it to stackoverflow
 Check usage of Supertip titles and descriptions by the different versions of Excel.  Check usage of ribbon group icons.
 
 Investigate differences between the builders employed by `ng`, `npm`, `webpack`, and `yarn`.
+
+Write `Notes/Issues/Architecture.md` about the model/view/controller design pattern 
 
 ## Other issues
 
