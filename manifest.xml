@@ -1,45 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
-  <Id>53e30403-713a-4849-9398-ffd8ec33ec8c</Id>  <!-- This replaces the Consoco Id. -->
+  <Id>53e30403-713a-4849-9398-ffd8ec33ec8c</Id>  <!-- This replaces the Consoco Id -->
   <Version>1.0.0.0</Version>
   <ProviderName>Stage One Software</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
+  <!-- The DisplayName is used in the Office store and in the Office UI add-ins dialog.            -->
   <DisplayName DefaultValue="XLray"/>
-  <Description DefaultValue="A testbed for Excel add-ins."/>
+  <Description DefaultValue="Development aid for Excel add-ins"/>
+  <!-- Icon for the personality menu.                                                              -->
   <IconUrl DefaultValue="https://localhost:3000/images/xray32.png"/>
+  <!--Icon used by the Office Store, add-in installation, and task panes                           -->
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/images/xray80.png"/>
-  <SupportUrl DefaultValue="https://www.contoso.com/help"/>
+  <SupportUrl DefaultValue="https://stageonesoftware.com"/>
   <AppDomains>
+    <!-- These domains open in a task pane.  Others open in a new browser window.                  -->
     <AppDomain>stageonesoftware.com</AppDomain>
   </AppDomains>
+
+  <!-- TaskPane Mode integration                                                                   -->
   <Hosts>
     <Host Name="Workbook"/>
+    <!-- Different hosts can have different sets of commands, specified below in VersionOverrides. -->
+    <!-- A host can be an Excel Workbook, a Word Document, or a PowerPoint Presentation.           -->
   </Hosts>  
   <DefaultSettings>
     <SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/>
   </DefaultSettings>
+
   <Permissions>ReadWriteDocument</Permissions>
+
+  <!-- Commands Mode integration                                                                   -->
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <!-- A list of the Hosts named above that have overridden behavior.                            -->
     <Hosts>
       <Host xsi:type="Workbook">
         <DesktopFormFactor>
+        <!-- The GetStarted message appears when the add-in is loaded.                             -->
           <GetStarted>
             <Title resid="GetStarted.Title"/>
             <Description resid="GetStarted.Description"/>
             <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
           </GetStarted>
+           <!-- The FunctionFile is an HTML page that provides JavaScript function definitions.    -->
+           <!-- This page is made available at the URL defined below by code in webpack.config.js. -->
           <FunctionFile resid="Commands.Url" />
+          <!-- The PrimaryCommandSurface is the main Office Ribbon.                                -->
+          <!-- An ExtensionPoint can also have type ContextMenu.                                   -->
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
-            <OfficeTab id="TabHome">
-              <Group id="CommandsGroup">
+            <!-- An OfficeTab extends an existing tab.  A CustomTab creates a new tab.             -->
+            <!-- Each tab is divided into groups of controls, which are either Buttons or Menus.   -->
+            <!-- Icon sizes 16, 32, 80 are required; sizes 20, 24, 40, 48, 64 are optional.        -->
+            <!-- The action taken on a control click can be ExecuteFunction or ShowTaskPane.       -->
+            <CustomTab id="XLray.Tab">
+
+              <!-- CommandsGroup on XLray.tab                                                      -->
+              <Group id="XLray.CommandsGroup">
                 <Label resid="CommandsGroup.Label" />
+                <!-- It is not clear where these icons are used.                                   -->
                 <Icon>
                   <bt:Image size="16" resid="Icon.16x16" />
                   <bt:Image size="32" resid="Icon.32x32" />
                   <bt:Image size="64" resid="Icon.64x64" />
                   <bt:Image size="80" resid="Icon.80x80" />
                 </Icon>
-                <Control xsi:type="Button" id="TaskpaneButton">
+                <Control xsi:type="Button" id="XLray.TaskpaneButton">
                   <Label resid="TaskpaneButton.Label" />
                   <Supertip>
                     <Title resid="TaskpaneButton.Label" />
@@ -52,18 +76,93 @@
                     <bt:Image size="80" resid="Icon.80x80" />
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <TaskpaneId>XLray.taskpane</TaskpaneId>
                     <SourceLocation resid="Taskpane.Url" />
                   </Action>
                 </Control>
+                <Control xsi:type="Button" id="XLray.CountButton">
+                  <Label resid="CountButton.Label" />
+                  <Supertip>
+                    <Title resid="CountButton.Label" />
+                    <Description resid="CountButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Count.16x16" />
+                    <bt:Image size="32" resid="Count.32x32" />
+                    <bt:Image size="64" resid="Count.64x64" />
+                    <bt:Image size="80" resid="Count.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>count</FunctionName>
+                  </Action>
+                </Control>
               </Group>
-            </OfficeTab>
+
+              <!-- InformationGroup on XLray.tab                                                   -->
+              <Group id="XLray.InformationGroup">
+                <Label resid="Information.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="About.16x16" />
+                  <bt:Image size="32" resid="About.32x32" />
+                  <bt:Image size="64" resid="About.64x64" />
+                  <bt:Image size="80" resid="About.80x80" />
+                </Icon>
+                <Control xsi:type="Button" id="XLray.HelpButton">
+		              <Label resid="Help.Label" />
+                  <Supertip>
+                    <Title resid="Help.Label" />
+                    <Description resid="Help.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Help.16x16" />
+                    <bt:Image size="32" resid="Help.32x32" />
+                    <bt:Image size="64" resid="Help.64x64" />
+                    <bt:Image size="80" resid="Help.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>showHelpDialog</FunctionName>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="XLray.AboutButton">
+                  <Label resid="About.Label" />
+                  <Supertip>
+                    <Title resid="About.Label" />
+                    <Description resid="About.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="About.16x16" />
+                    <bt:Image size="32" resid="About.32x32" />
+                    <bt:Image size="64" resid="About.64x64" />
+                    <bt:Image size="80" resid="About.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>showAboutDialog</FunctionName>
+                  </Action>
+                </Control>
+              </Group>
+
+              <Label resid="CustomTab.Label"/>              
+            </CustomTab>
           </ExtensionPoint>
         </DesktopFormFactor>
       </Host>
     </Hosts>
+
+    <!--The URLs for all resources should use https.                                               -->
     <Resources>
       <bt:Images>
+        <bt:Image id="About.16x16" DefaultValue="https://localhost:3000/images/questionMark16.png"/>
+        <bt:Image id="About.32x32" DefaultValue="https://localhost:3000/images/questionMark32.png"/>
+        <bt:Image id="About.64x64" DefaultValue="https://localhost:3000/images/questionMark64.png"/>
+        <bt:Image id="About.80x80" DefaultValue="https://localhost:3000/images/questionMark80.png"/>
+        <bt:Image id="Count.16x16" DefaultValue="https://localhost:3000/images/count16.png"/>
+        <bt:Image id="Count.32x32" DefaultValue="https://localhost:3000/images/count32.png"/>
+        <bt:Image id="Count.64x64" DefaultValue="https://localhost:3000/images/count64.png"/>
+        <bt:Image id="Count.80x80" DefaultValue="https://localhost:3000/images/count80.png"/>
+        <bt:Image id="Help.16x16" DefaultValue="https://localhost:3000/images/book16.png"/>
+        <bt:Image id="Help.32x32" DefaultValue="https://localhost:3000/images/book32.png"/>
+        <bt:Image id="Help.64x64" DefaultValue="https://localhost:3000/images/book64.png"/>
+        <bt:Image id="Help.80x80" DefaultValue="https://localhost:3000/images/book80.png"/>        
         <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/images/xray16.png"/>
         <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/images/xray32.png"/>
         <bt:Image id="Icon.64x64" DefaultValue="https://localhost:3000/images/xray64.png"/>
@@ -74,15 +173,24 @@
         <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html" />
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html" />
       </bt:Urls>
-      <bt:ShortStrings>
-        <bt:String id="GetStarted.Title" DefaultValue="Get started with XLray." />
-        <bt:String id="CommandsGroup.Label" DefaultValue="XLray" />
+      <bt:ShortStrings>                                                    <!-- Max 125 characters -->
+        <bt:String id="About.Label" DefaultValue="About" />
+        <bt:String id="CommandsGroup.Label" DefaultValue="Actions" />
+        <bt:String id="CountButton.Label" DefaultValue="Count clicks" />
+        <bt:String id="CustomTab.Label" DefaultValue="XLray" />
+        <bt:String id="GetStarted.Title" DefaultValue="Get started with XLray" />
+        <bt:String id="Help.Label" DefaultValue="Help" />
+        <bt:String id="Information.Label" DefaultValue="Information" />
         <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane" />
       </bt:ShortStrings>
-      <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="XLray loaded succesfully.  Click the 'Show Taskpane' button on the HOME tab to use it." />
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to show the XLray taskpane." />
+      <bt:LongStrings>                                                     <!-- Max 250 characters -->
+        <bt:String id="About.Tooltip" DefaultValue="Click for information about XLray" />
+        <bt:String id="CountButton.Tooltip" DefaultValue="Increment the count of how many times this button has been clicked" />
+        <bt:String id="GetStarted.Description" DefaultValue="XLray loaded succesfully.  Choose the XLray tab to use it." />
+        <bt:String id="Help.Tooltip" DefaultValue="Click for XLray documentation" />
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to show the XLray taskpane" />
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
+
 </OfficeApp>

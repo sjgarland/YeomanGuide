@@ -4,15 +4,88 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=Edge' />
 
     <!-- Office JavaScript API -->
-    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    <script type='text/javascript' src='https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js'></script>
+    <script type='text/javascript'>
+
+  log = '';
+
+  function details() {
+  let s = '<table>';
+  s += '<tr><td>Platform</td><td>';
+  s += Office.context.platform + '</td></tr>';
+  s += '<tr><td>License</td><td>';
+  s+= Office.context.license + '</td></tr>';
+  s += '<tr><td>Office version</td><td>';
+  s += Office.context.diagnostics.version + '</td></tr>';
+  s += '<tr><td>Browser</td><td>';
+  s += window.navigator.appName + '</td></tr>';
+  s += '<tr><td>Browser version</td><td>';
+  s += window.navigator.appVersion + '</td></tr>';
+  s += '<tr><td>ExcelApi 1.4 support</td><td>';
+  s += Office.context.requirements.isSetSupported('ExcelApi', '1.4') + '</td></tr>';
+  s += '</table>';
+  document.getElementById('table').innerHTML = s;
+  s = 'focus = ' + Office.context.document.settings.get('focus') + '<br>';
+  s += 'showValues = ' + Office.context.document.settings.get('showValues') + '<br>';
+  s += 'showCollapses = ' + Office.context.document.settings.get('showCollapses');
+  document.getElementById('settings').innerHTML = s;
+  }
+
+  function addToLog(s) {
+    document.getElementById('log').innerHTML += s + '<br>';
+  }
+
+  function set(key, value) {
+    Office.context.document.settings.set(key, value);
+    Office.context.document.settings.saveAsync(function (result) {
+      if (result.status == Office.AsyncResultStatus.Failed) {
+        addToLog('Could not save setting: ' + result.error.message);
+      } 
+    })
+    localStorage.setItem(key, value);
+  }
+
+  function count() {
+    var count = Office.context.document.settings.get('count');
+    if (!count) { count = 0; }
+    count++;
+    Office.context.document.settings.set('count', count);
+    Office.context.document.settings.saveAsync(function (result) {
+      if (result.status == Office.AsyncResultStatus.Failed) {
+        addToLog('Could not save setting: ' + result.error.message);
+      } 
+    })
+    localStorage.setItem('count', count);
+    addToLog('Count = ' + count);
+  }
+  function showAboutDialog() {
+    Office.context.ui.displayDialogAsync('https://localhost:3000/about.html',
+    { height: 50, width: 50 });
+  }
+  function showForge() {
+    Office.context.ui.displayDialogAsync('https://localhost:3000/taskpane.html',
+    { height: 50, width: 50 });
+  }
+  function showHelpDialog() {
+    window.open('https://github.com/sjgarland/XLray/blob/master/README.md');
+  }
+
+  </script>
 </head>
 
-<body>
-  
+<body id='body'>
+  <button onclick='details()'>Click for information</button> 
+    <h3>Environment</h3>
+    <div id='table'></div>
+    <h3>Excel settings</h3>
+    <div id='settings'></div>
+    <h3>Log</h3>
+    <div id='log'></div>
+</div>
 </body>
 
 </html>
