@@ -19,7 +19,7 @@ export default class AppComponent {
 
   constructor() {
     Log.add('Platform: ' + Office.context.platform);
-    Log.add('License: ' + Office.context.license);
+    Log.add('License: ' + Office.context.license['value']);
     Log.add('Office version: ' + Office.context.diagnostics.version);
     Log.add('Browser: ' + window.navigator.appName);
     Log.add('Browser version: ' + window.navigator.appVersion);

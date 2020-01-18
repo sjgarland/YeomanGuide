@@ -10,9 +10,9 @@
 
 Some Office 365 [manifest documentation](https://docs.microsoft.com/en-us/office/dev/add-ins/reference/manifest/control) refers to a _Tooltip_, which appears to be an outdated version of a _Supertip_.
 
-## Incorrect documentation'
+## Incorrect documentation
 
-The [Office 365 API documentation](https://docs.microsoft.com/en-us/javascript/api/office/office.context?view=word-js-preview#license) says that `Office.context.license` is a string, yet it is printed as `[object Object]`)
+The [Office 365 API documentation](https://docs.microsoft.com/en-us/javascript/api/office/office.context?view=word-js-preview#license) says that `Office.context.license` is a string, yet it is actually an object.  To get its value, use `Office.context.license['value']`.
 
 ## Missing documentation
 
