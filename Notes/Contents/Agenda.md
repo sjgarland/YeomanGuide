@@ -28,6 +28,8 @@ Check usage of Supertip titles and descriptions by the different versions of Exc
 
 Investigate differences between the builders employed by `ng`, `npm`, `webpack`, and `yarn`.
 
+Investigate [licensing](https://docs.microsoft.com/en-us/office/dev/store/add-license-checks-to-office-and-sharepoint-add-ins?redirectedfrom=MSDN.)
+
 ## Other issues
 
 Try to solve the [task pane width problem](Issues/Appearance.md##Major-issues) by adding a control to the task pane.  This control would pop up a dialog window that may be able to communicate with Excel.  Try to make this window non-modal, like ones created in `commands.html`, so that it will not disappear when the user clicks outside the window.
