@@ -55,6 +55,14 @@ module.exports = async (env, options) => {
       */
       new CopyWebpackPlugin([
         {
+          to: "about.html",
+          from: "./src/commands/about.html"
+        },
+        {
+          to: "Notes",
+          from: "./Notes"
+        },
+        {
           to: "taskpane.css",
           from: "./src/taskpane/taskpane.css"
         },
