@@ -18,8 +18,6 @@ These problems may be caused by inadequate configurations in `tsconfig.json` and
 
 ## Coding
 
-Modify the manifest so that it creates an XLray ribbon with actions for viewing the taskpane, popping up an _About_ message, and changing an Excel setting.  Create better icons.
-
 Catch and report Excel events: selection of a different cell, changes in the value of the displayed formula, insertion or deletion of a row or column.  Show other information, if it exists: decoded license information, user identity, process numbers (as part of the context to see which components can communicate with which).
 
 Catch and report changes in Excel settings.  It works to mirror them in `localStorage` and poll for changes.  Can `localStorage` events be used instead of polling?  Can Excel events be made to work?  See the issues about [settings](Issues/API.md##Settings).
