@@ -1,6 +1,6 @@
-# Visual Studio
+# Notes on Visual Studio
 
-Visual Studio Code (for the Mac and Windows), Visual Studio 2019 (for Windows), and Visual Studio for the Mac all support TypeScript.  Visual Studio 2019 has a Community version that is free for use in small organizations.
+[Visual Studio Code](https://code.visualstudio.com/) (for the Mac and Windows), [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) (for Windows), and [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) all support TypeScript.  Visual Studio 2019 has a Community version that is free for use in small organizations.
 
 Visual Studio Code is easier to use and seems to work better than Visual Studio 2019.  
 

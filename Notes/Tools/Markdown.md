@@ -1,4 +1,4 @@
-# Markdown
+# Notes on Markdown
 
 Markdown is GitHub's mark-up language of choice.  To view a Markdown document in Visual Studio, right-click the tab for the `.md` document and select Open Preview.
 

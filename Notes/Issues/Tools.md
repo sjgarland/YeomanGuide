@@ -42,3 +42,13 @@ Visual Studio Code does not provide support for debugging Office 365 add-ins.
 Visual Studio 2019 provides clumsy [support for debugging add-ins](https://visualstudio.microsoft.com/vs/features/debugging-and-diagnostics/).  I haven't been able to use it to set breakpoints.
 
 Commands for previewing Markdown documentation do not work well, as they do in Visual Studio Code.
+
+## Yeoman Office Generator
+
+The generator does not provide adequate support for using Angular.  In particular, it does not generate an Angular project, in which commands like `ng generate component` would be available.
+
+Confusion also arises because of differences between using `npm start` in a Yeoman project and `ng serve` in an Angular project.
+
+The webpack configuration does not include the directory containing the images foe icons in the production build.  A `CopyWebPackPlugin` needs to be inserted by hand.
+
+See the *Issues* section of the [Yeoman GitHub repository](https://github.com/OfficeDev/generator-office) for comments about the Office generator.

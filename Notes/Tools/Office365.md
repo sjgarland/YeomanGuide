@@ -1,4 +1,4 @@
-# Microsoft Office 365 add-ins
+# Notes on Microsoft Office 365 add-ins
 
 ## Documentation
 
@@ -32,7 +32,7 @@ See also <https://docs.microsoft.com/en-us/windows/win32/uxguide/vis-fonts>.
 
 ### Icons
 
-Use the colors recommended by Office 365:
+Use the colors [recommended](https://docs.microsoft.com/en-us/office/dev/add-ins/design/add-in-icons-monoline) by Office 365:
 
 * rgb(77, 130, 184) or hex 4D82B8 for icon sizes 32 and above
 * rgb(74, 125, 177) or hex 4A7DB1 for icon size 16
