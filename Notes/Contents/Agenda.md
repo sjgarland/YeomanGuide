@@ -9,7 +9,7 @@ Share in AppSource.
 Angular templates, such as `{{selectedRange}}` in `app.component.html`, work in the production build.  However,
 Angular directives and selectors work only during testing on `localhost:3000`; they do not work in the production build.
 
-The `MonitorComponent` defines a selector `<monitor></monitor>` for use in `app.component.html`.  In the production build, the loader fails to find `monitor.component.html`.  Code for this component is currently commented out in `app.component.html` and `webpack.config.ts`.
+The `MonitorComponent` defines a selector `<monitor></monitor>` for use in `app.component.html`.  In the production build, the loader fails to find `monitor.component.html`.  This selector is currently commented out in `app.component.html`.
 
 The Angular `*ngFor` directive also causes problems.  The console log for the task pane shows _Error: Template parse errors: Can't bind to 'ngforOf' since it isn't a known property of 'tr'_, Excel issues an error alert: _Custom UI Runtime Error in 53e30403-713a-4849-9398-ffd8ec33ec8c_developer  An error occurred while calling the callback: "OsfImg"_, and the XLray icon does not appear with the occurrences of XLray in the `Home` tab and under `Insert > My Add-ins > Developer Add-ins`.  
 
