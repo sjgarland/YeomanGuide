@@ -2,7 +2,8 @@
 <!-- <monitor></monitor> -->
 <div>
     <h2>Excel monitor</h2>
-    <p>The currently selected range is {{selectedRange}}.</p>
+    <p>Currently selected range: {{selectedRange}}</p>
+    <p><em>Count clicks</em> button clicks: {{getClicks()}}</p>
     <p>Click <span (click)="run()"><em>here</em></span> to refresh the monitor.</p>
 </div>
 <div>
