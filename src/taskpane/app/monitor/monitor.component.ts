@@ -3,12 +3,13 @@
 * Copyright 2020 (c) Stage One Software.
 *-----------------------------------------------------------------*/
 
-import { Component } from '@angular/core';
+// import { Component } from '@angular/core';
 
 /** 
  * Controller for the monitor view. 
  */
 
+/*
 @Component({
   // eslint-disable-next-line no-undef
   moduleId: module.id.toString(),
@@ -20,3 +21,4 @@ import { Component } from '@angular/core';
 export class MonitorComponent  {
     title = 'Excel monitor';
 }
+*/

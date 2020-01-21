@@ -1,11 +1,13 @@
 
 <!-- <monitor></monitor> -->
+
 <div>
     <h2>Excel monitor</h2>
     <p>Currently selected range: {{selectedRange}}</p>
     <p><em>Count clicks</em> button clicks: {{getClicks()}}</p>
     <p>Click <span (click)="run()"><em>here</em></span> to refresh the monitor.</p>
 </div>
+
 <div>
     <h2>Debugging log</h2>
     <!--  The production build does not recognize the *ngFor directive
