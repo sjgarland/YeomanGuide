@@ -8,6 +8,20 @@ The width of the taskpane [cannot be increased in Office for the web](https://of
 
 Replacing the taskpane with a dialog window, which is non-modal and has unlimited width, does not help because no formula is displayed in the window.  Microsoft documentation states (somewhere) that dialog boxes can communicate with Excel only when opened from a taskpane; the [Office.UI interface](https://docs.microsoft.com/en-us/javascript/api/office/office.ui) cautions not to "use a dialog box to interact with a document.  Use a task pane instead."  See also [Using the Dialog API](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/dialog-api-in-office-add-ins).
 
+## Excel peculiarities
+
+In Excel for Windows, clicking a button on a ribbon causes the ribbon to collapse.
+
+In Excel for the web, the `File` menu allows users to open only files that have been uploaded to `onedrive.live.com`.
+
+In Excel for the web, fewer functions (411 out of 479 as of December 2019) appear in the `Function` menu on the `Insert` tab and work with auto-complete.
+
+In Excel for the web, the location of the `Add-ins` group on the `Insert` ribbon depends on whether or not Excel's ribbons are simplified.
+
+Different versions of Excel display different tabs on the ribbon.  In Excel for the Mac, there is no `File` tab on the ribbon (it is a menu at the top of the window).  In Excel for the web, there is no `PageLayout` tab on the ribbon (the `Formulas` tab appeared only in 2020).
+
+Microsoft for the Mac supplements the ribbon with menus at the top of the screen: Excel, File, Edit, View, Insert, Format, Tools, Data, Window, and Help.
+
 ## Other issues
 
 Add-ins do not present a uniform appearance across different platforms.
@@ -15,18 +29,6 @@ Add-ins do not present a uniform appearance across different platforms.
 Only Excel for Windows displays both the `Title` and  `Description` in the `Supertip` for a control.  Excel for the Mac displays only the `Title`.  Excel for the web displays neither.
 
 No version of Excel displays the `Icon` for a group on a tab on the ribbon.
-
-Different versions display different tabs on the ribbon.
-
-|         | File | Home | Insert | Page | Layout  | Formulas | Data | Review | View | Help |
-| ------- | ---- | ---- | ------ | ---- | ------  | -------- | ---- | ------ | ---- | ---- |
-| Windows | Yes  | Yes  | Yes    | Yes  | Yes     | Yes      | Yes  | Yes    | Yes  | Yes  |
-| Mac     |      | Yes  | Yes    |      | Renamed | Yes      | Yes  | Yes    | Yes  | Yes  |
-| Web     | Yes  | Yes  | Yes    |      |         |          | Yes  | Yes    | Yes  | Yes  |
-
-Excel for the Mac supplements the ribbon with menus at the top of the screen: Excel, File, Edit, View, Insert, Format, Tools, Data, Window, and Help.
-
-The absence of various tabs in Excel for the Mac and Excel for the web necessitate putting buttons that would be appropriate for those tabs in less appropriate locations such as the main ribbon.
 
 The title bar for floating dialogs is different on different platforms.  Excel for the Mac shows _Office Add-ins - localhost_.  Excel for the web shows different titles with different browsers: a proper title with Chrome, but with a banner below the title with security information about _localhost:3000_; _localhost_ with Safari.
 
