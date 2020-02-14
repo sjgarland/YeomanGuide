@@ -16,7 +16,15 @@ In Excel, choose `Insert > Add-ins > My Add-ins` and select XLray.
 
 ## Excel for Windows
 
-See [Microsoft's documentation](https://docs.microsoft.com/en-us/office/dev/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins) for handling security issues that arise in using Excel for Windows.
+Installation in Excel for Windows involves the following steps.
+
+_Create an add-in catalog._  In File Explorer, create a folder named `AddInCatalog`.  Put `xlray.xml` in this catalog.  
+
+_Share the add-in catalog._  Right-click `AddInCatalog` and choose `Properties`. In the `Properties` dialog window, select the `Sharing` tab and click `Share`.  Within the `Network access` dialog window, add yourself and click `Share`.  When you see the confirmation `Your folder is shared`, click `Copy` to copy the network path for `AddInCatalog` to the clipboard. Then click `Done` to close this dialog window and `OK` to close the `Properties` dialog window.
+
+_Make Excel trust the add-in catalog._  Click `File` on Excel's ribbon and select `Options > Trust Center > Trust Center Settings`.  In the `Trust Center` dialog window, select `Trusted Add-in Catalogs`, paste the network path on the clipboard into the `Catalog Url` box, and delete the final right parenthesis and everything that comes before `file://` in that box. Then click `Add catalog` and the `Show in Menu` check box for the newly trusted catalog.  Finally, click `OK` twice to close the `Trust Center` and `Excel Options` dialog windows.
+
+_Install Formula View._  Close and reopen Excel.  Open Excel's `Insert` ribbon and choose `My Add-ins`.  Select `SHARED FOLDER` at the top of the `Office Add-ins` dialog window, click `XLray`, and then click `Add`.
 
 ## [Excel on an iPad](https://docs.microsoft.com/en-us/office/dev/add-ins/testing/sideload-an-office-add-in-on-ipad-and-mac)
 
