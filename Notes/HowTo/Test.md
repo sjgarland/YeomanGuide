@@ -1,6 +1,6 @@
 # Testing XLray
 
-These notes describe how to test XLray using a local web server.  See the simpler [instructions](Use.md) for how to use XLray with a remote server.
+These notes describe how to test XLray (and other add-ins) using a local web server.  See the simpler [instructions](Use.md) for how to use XLray with a remote server.
 
 ## Required infrastructure
 
