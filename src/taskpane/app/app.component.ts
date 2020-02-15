@@ -4,10 +4,11 @@
 *-----------------------------------------------------------------*/
 
 import { Component } from "@angular/core";
+// eslint-disable-next-line no-unused-vars
+import { CommonModule } from "@angular/common";
 import { Log } from "./log";
 const template = require("./app.component.html");
 /* global console, document, Excel, localStorage, Office, require, setInterval, window */
-/* eslint-disable no-constant-condition */
 
 @Component({
   selector: "app-home",
@@ -26,6 +27,7 @@ export default class AppComponent {
     this.log.add('Browser: ' + window.navigator.appName);
     this.log.add('Browser version: ' + window.navigator.appVersion);
     let version = 4;
+    // eslint-disable-next-line no-constant-condition
     while (true) {
       if (!Office.context.requirements.isSetSupported('ExcelApi', '1.' + version.toString())) { break; }
       version++;
