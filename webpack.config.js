@@ -1,11 +1,13 @@
 /* global module, process, require */
-
 const devCerts = require("office-addin-dev-certs");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const fs = require("fs");
+// const webpack = require("webpack");
 
 module.exports = async (env, options) => {
+  // const dev = options.mode === "development";
   const config = {
     devtool: "source-map",
     entry: {
@@ -31,7 +33,12 @@ module.exports = async (env, options) => {
         {
           test: /\.html$/,
           exclude: /node_modules/,
-          use: "html-loader"
+          use: [
+            {
+              loader: "html-loader",
+              options: { minimize: false }
+            }
+          ]
         },
         {
           test: /\.(png|jpg|jpeg|gif)$/,
@@ -54,22 +61,9 @@ module.exports = async (env, options) => {
       }),
       */
       new CopyWebpackPlugin([
-        {
-          to: "about.html",
-          from: "./src/commands/about.html"
-        },
-        {
-          to: "Notes",
-          from: "./Notes"
-        },
-        {
-          to: "taskpane.css",
-          from: "./src/taskpane/taskpane.css"
-        },
-        {
-          to: "images",
-          from: "./images"
-        }
+        { to: "about.html",   from: "./src/commands/about.html"  },
+        { to: "taskpane.css", from: "./src/taskpane/taskpane.css" },
+        { to: "images",       from: "./images"                    }
       ]),
       new HtmlWebpackPlugin({
         filename: "commands.html",
