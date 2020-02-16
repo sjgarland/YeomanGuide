@@ -3,7 +3,9 @@
 [Angular](https://angular.io) is one of several frameworks for constructing single-page web applications.  It works well with HTML and TypeScript.
 
 - [Angular 8 Tutorial](https://coursetro.com/posts/code/174/Angular-8-Tutorial-&-Crash-Course)
-- [Comparison of Angular, React, and Vue](https://www.codeinwp.com/blogA-vs-vue-vs-react/)
+- [Comparison of Angular, React, and Vue](https://www.codeinwp.com/blog/angular-vs-vue-vs-react/)
+
+Angular is used by Google, React by Facebook.  React is easier to learn, but Angular provides much better support than React for the model-view-controller design pattern.
 
 Angular uses the `npm` package manager for JavaScript, which is included in the `Node.js` runtime support for JavaScript.  `npm` provides both a command-line client and an online database of public and paid-for private packages.
 
