@@ -32,4 +32,4 @@ The following notes provide information about XLray and the development of Offic
 [Visual Studio](../Tools/VisualStudio.md)
 [Yeoman Office Generator](../Tools/Yeoman.md)
 
-Copyright (c) 2020 Stage One Software.  All rights reserved.
+Copyright &copy; 2020 Stage One Software.  All rights reserved.
