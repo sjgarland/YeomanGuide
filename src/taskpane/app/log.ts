@@ -25,7 +25,7 @@ export class Log {
     
     /** Adds an entry to the log. */
     public add(s: string) {
-        this.contents.push(this.getTime() + ' ' + s);
+        this.contents.push(s);
         // if (this.tracing) { console.log(s); }
     }
     
