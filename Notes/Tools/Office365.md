@@ -22,20 +22,31 @@ This code begins with the following lines.
 
 ## Style
 
-### Fonts
+Microsoft's recommended [typography](https://docs.microsoft.com/en-us/office/dev/add-ins/design/add-in-typography) can be problematic because Mac OS X does not provide the Segoe font
 
-Title: .ms_font-xl, Segoe Light, 21px
-Subtitle: .ms-font-l, Segoe Semilight, 17px
-Body text: .ms-font-m, Segoe Regular, 14px
+- Title: .ms_font-xl, Segoe Light, 21px
+- Subtitle: .ms-font-l, Segoe Semilight, 17px
+- Body text: .ms-font-m, Segoe Regular, 14px
+- Caption: .ms-font-xs, Segoe Regular, 11px
 
-See also <https://docs.microsoft.com/en-us/windows/win32/uxguide/vis-fonts>.
+Microsoft's recommended [icon styles](https://docs.microsoft.com/en-us/office/dev/add-ins/design/add-in-icons-monoline)
 
-### Icons
+- rgb(77, 130, 184) or #4D82B8 for icon sizes 32 and above
+- rgb(74, 125, 177) or #4A7DB1 for icon size 16
 
-Use the colors [recommended](https://docs.microsoft.com/en-us/office/dev/add-ins/design/add-in-icons-monoline) by Office 365:
+Recommendations in <https://www.64notes.com/design/stop-helvetica-arial/>
 
-* rgb(77, 130, 184) or hex 4D82B8 for icon sizes 32 and above
-* rgb(74, 125, 177) or hex 4A7DB1 for icon size 16
+- Typefaces
+  - Lucida Grande is the author's favorite
+  - Trebuchet MS is "brilliant"
+  - Verdana, Tahoma look good
+  - Helvetica looks better than Arial
+  - Georgia is much better than Times New Roman for a font with serifs
+- Color
+  - Text: #222222 to #555555
+  - Background: off white #FAFAFA, #F9F9F9, #F8F8F8
+
+## Icons
 
 Use <http://transparent.imageonline.co/> to make the background transparent.
 
