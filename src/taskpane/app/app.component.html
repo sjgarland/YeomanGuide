@@ -1,19 +1,6 @@
 
-<!-- <monitor></monitor> -->
+<excel-monitor></excel-monitor>
 
-<div>
-    <h2>Excel monitor</h2>
-    <p>Currently selected range: {{selectedRange}}</p>
-    <p><em>Count clicks</em> button clicks: {{getClicks()}}</p>
-    <p>Click <span (click)="run()"><em>here</em></span> to refresh the monitor.</p>
-</div>
+<h2>Event log</h2>
 
-<div>
-    <h2>Debugging log</h2>
-    <!--  The production build does not recognize the *ngFor directive
-        <table>
-            <tr *ngFor ="let s of log()"><td>{{s}}</td></tr>
-        </table>
-    -->
-    <div id="debuggingLog">{{logAsTable()}}</div>
-</div>
+<span class="log" *ngFor ="let s of log.get()">{{s}}<br></span>
