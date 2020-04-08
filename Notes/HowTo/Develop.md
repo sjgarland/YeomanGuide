@@ -1,10 +1,10 @@
 # How to Develop Excel Add-ins
 
-The code produced by the [Yo Office generator](https://github.com/OfficeDev/generator-office) for the Angular/TypeScript framework has problems that prevent deploying it successfully.  These notes describe those problems and how to fix them.  These fixes are incorporated in the code for this XLray add-in.
+The code produced by the [Yo Office generator](https://github.com/OfficeDev/generator-office) for the Angular/TypeScript framework has problems that prevent successful deployment.  These notes describe these problems and fixes for them that are incorporated in this Yeoman Guide add-in.
 
 ## Problems
 
-**Problem:** The add-in's icon did not appear during sideloading (from the _Insert_ tab).  It appeared with the _Show Taskpane_ button for the add-in on Excel's _Home_ tab when testing with _npm run_, but not when running a production build with the manifest _xlray.xml_.
+**Problem:** The add-in's icon did not appear during sideloading (from the _Insert_ tab).  It appeared with the _Show Taskpane_ button for the add-in on Excel's _Home_ tab when testing with _npm run_, but not when running a production build with the manifest _Yeoman Guide.xml_.
 
 **Fix:** Added an entry to the _CopyWebpackPlugin_ in _webpack.config.js_ to include the _assets_ directory in the production build (renamed here to the _images_ directory).
 
@@ -23,7 +23,7 @@ The code produced by the [Yo Office generator](https://github.com/OfficeDev/gene
             }
           ]
   
-  Explicit inclusion of other [Angular modules](https://angular.io/guide/frequent-ngmodules) are needed to support the use of Angular forms and routing.
+Explicit inclusion of other [Angular modules](https://angular.io/guide/frequent-ngmodules) are needed to support the use of Angular forms and routing.
 
 ## Customizations
 
@@ -35,7 +35,7 @@ Generate a new _&lt;Id&gt;_.  Change the provider and display names, description
 
 Make a copy of the manifest in which all occurrences of <https://localhost:3000> are replaced by the URL for a directory containing the production code generated in the folder _dist_ by _npm run build_.
 
-For XLray, the folder _dist_ was uploaded to _stageonesoftware.com_ and renamed to _XLray_.  The manifest _xlray.xml_ uses the URL <https://stageonesoftware.com/XLray> instead of <https://localhost:3000>.
+For Yeoman Guide, the folder _dist_ was uploaded to _stageonesoftware.com_ and renamed to _Yeoman Guide_.  The manifest _Yeoman Guide.xml_ uses the URL <https://stageonesoftware.com/Yeoman Guide> instead of <https://localhost:3000>.
 
 ### package.json
 
@@ -49,13 +49,13 @@ Change the title and the sideload message.
 
 Change the code in the _run_ method.  If the _run_ method generates content for the task pane, create a constructor that calls _run_ to generate that content before the task pane is displayed.
 
-XLray was customized by changing code that highlights and logs the selected range to set an instance variable instead, adding a constructor to ensure this variable is set before the task pane is displayed, and adding a sample list of strings for use with _*ngFor_.
+Yeoman Guide was customized by changing code that highlights and logs the selected range to set an instance variable instead, adding a constructor to ensure this variable is set before the task pane is displayed, and adding a sample list of strings for use with _*ngFor_.
 
 ### app.component.html
 
 Replace the content.  
 
-In XLray, the new content used an Angular directive (_*ngFor_) and selector (_&lt;app-test&gt;&lt;/app-test&gt;_), and it displayed the value _{{selectedRange}}_ of the new instance variable.
+In Yeoman Guide, the new content used an Angular directive (_*ngFor_) and selector (_&lt;app-test&gt;&lt;/app-test&gt;_), and it displayed the value _{{selectedRange}}_ of the new instance variable.
 
 ### assets
 
@@ -66,6 +66,23 @@ Replace _icon-16.png_, _icon-32.png_, and _icon-80.png_ by new icons.  Add _icon
 Why doesn't _templateUrl_ work inside _@Component_ in _app.component.ts_ and _test.component.ts_?  Why must these files _require_ a template instead?
 
 Can the Angular CLI be installed and used to generate components and services?
+
+What does Office store in its different caches?
+
+- `~/Library/Containers/com.microsoft.Office365ServiceV2/Data/Library/Caches` has two subdirectories.  The `Microsoft` subdirectory contains a log file.
+- `~/Library/Containers/com.microsoft.Excel/Data/Library/Caches/` has four subdirectories.  The `Microsoft` subdirectory contains a log file.
+
+Can the "Got it" pop-up, which occurs when the add-in is loaded, be eliminated?
+
+Can the _i_ button in the task pane be eliminated?  Clicking it pops up a _personality menu_ with items primarily useful for debugging.
+
+Why does code that works with `ng serve`, `ng build`, and `angular.json` not work with `npm start` and `webpack.config.js`?  Can the following modifications be eliminated?
+
+- Modified `imports` statements to use `../..` instead of `src/`.
+- Added `@Inject(SynchronizerService)`, `Inject(ViewService)` in component constructors.
+- Removed the parameter from `@Injectable(({providedIn: 'root'})`.
+
+How do `ng serve` and `npm start` supply actual parameters to constructors?
 
 ## Copyright
 

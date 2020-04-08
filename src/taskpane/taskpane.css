@@ -8,9 +8,15 @@
  p, ul {
     font-size: 14pt;
  }
- 
 
- .log {
-     font-size: 14pt;
+ td {
+     padding-right: 10px;
  }
- 
+
+.center {
+    text-align: center;
+  }
+  
+  .large {
+    font-size: 14pt;
+  }

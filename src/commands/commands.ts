@@ -1,7 +1,10 @@
-/*
+/*--------------------------------------------------------------------------------------------
+ * commands/commands.ts
+ *
+ * Copyright 2020 (c) Stage One Software.
  * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
  * See LICENSE in the project root for license information.
- */
+ *--------------------------------------------------------------------------------------------*/
 
 /* global global, Office, self, window */
 
@@ -11,7 +14,6 @@ Office.onReady(() => {
 
 /**
  * Shows a notification when the add-in command is executed.
- * @param event
  */
 function action(event: Office.AddinCommands.Event) {
   const message: Office.NotificationMessageDetails = {

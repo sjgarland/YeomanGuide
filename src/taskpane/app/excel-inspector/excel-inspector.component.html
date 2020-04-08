@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <td>Platform</td><td>{{platform}}</td>
+    </tr>
+    <tr>
+        <td>Version</td><td>{{version}}</td>
+    </tr>
+    <tr *ngIf="platform === 'Online'">
+        <td>Browser</td><td>{{browser}}</td>
+    </tr>
+    <tr>
+        <td>Selected range</td><td>{{selectedRange}}</td>
+    </tr>
+</table>

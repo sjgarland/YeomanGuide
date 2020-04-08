@@ -1,17 +1,18 @@
-# Overview of XLray documentation
+# Overview of Yeoman Guide documentation
 
-The following notes provide information about XLray and the development of Office 365 add-ins.
+The following notes provide information about Yeoman Guide and the development of Office 365 add-ins.
 
 ## Contents
 
-[Development agenda for XLray](Agenda.md)  
-[Overview of XLray documentation](Overview.md) (this file)  
+[Development agenda for Yeoman Guide](Agenda.md)  
+[Overview of Yeoman Guide documentation](Overview.md) (this file)  
 [Wishlist of features and tools](Wishlist.md)
 
 ## How To
 
-[Test XLray locally](../HowTo/Test.md)  
-[Use XLray over the web](../HowTo/Use.md)
+[Develop an add-in](../HowTo/Develop.md) that works
+[Test Yeoman Guide locally](../HowTo/Test.md)  
+[Use Yeoman Guide over the web](../HowTo/Use.md)
 
 ## Issues
 

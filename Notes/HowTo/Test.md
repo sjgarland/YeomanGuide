@@ -1,6 +1,6 @@
-# Testing XLray
+# Testing Yeoman Guide
 
-These notes describe how to test XLray (and other add-ins) using a local web server.  See the simpler [instructions](Use.md) for how to use XLray with a remote server.
+These notes describe how to test Yeoman Guide (and other add-ins) using a local web server.  See the simpler [instructions](Use.md) for how to use Yeoman Guide with a remote server.
 
 ## Required infrastructure
 
@@ -10,13 +10,13 @@ Excel for Windows requires Microsoft Windows 10 Version 1909, with Internet Expl
 
 [Node.js](https://nodejs.org) provides runtime support and the `npm` package manager for JavaScript.
 
-## Run Excel with the XLray add-in
+## Run Excel with the Yeoman Guide add-in
 
-Issue the command `npm start` in the `XLray` folder.  This will start both a `dev server` and Excel.  Under Mac OS X, it is currently necessary to start the `dev server` by typing `sudo npm start`.  (The `dev server` is a process created by the shell script `node_modules/.bin/webpack-dev-server`.)
+Issue the command `npm start` in the `Yeoman Guide` folder.  This will start both a `dev server` and Excel.  Under Mac OS X, it is currently necessary to start the `dev server` by typing `sudo npm start`.  (The `dev server` is a process created by the shell script `node_modules/.bin/webpack-dev-server`.)
 
-The ribbon in Excel for Windows and Excel for the Macintosh should now contain an `XLray` tab.
+The ribbon in Excel for Windows and Excel for the Macintosh should now contain an `Yeoman Guide` tab.
 
-To make that tab appear in Excel for the web, select its `Insert` tab.  Next click `Office Add-ins`, `Manage My Add-ins`, `Upload My Add-in`, and `Browse`.  Then upload `manifest.xml` from the `XLray` folder.
+To make that tab appear in Excel for the web, select its `Insert` tab.  Next click `Office Add-ins`, `Manage My Add-ins`, `Upload My Add-in`, and `Browse`.  Then upload `manifest.xml` from the `Yeoman Guide` folder.
 
 ## Debugging options
 
@@ -55,15 +55,15 @@ Under Windows, type `npx office-addin-dev-settings runtime-log --enable log.txt`
 
 ## Troubleshooting
 
-If Excel's ribbon does not contain the `XLray` tab, but a `dev server` is running, select the `Insert` tab, click the triangle to the right of `My Add-ins`, and select `XLray`.
+If Excel's ribbon does not contain the `Yeoman Guide` tab, but a `dev server` is running, select the `Insert` tab, click the triangle to the right of `My Add-ins`, and select `Yeoman Guide`.
 
-If `XLray` is not in the list of add-ins, or if the `dev server` did not start, there may be a problem with the [manifest](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/add-in-manifests).  To [validate a manifest](https://docs.microsoft.com/en-us/office/dev/add-ins/testing/troubleshoot-manifest), type `npm run validate`.  This will check check whether the manifest adheres to the appropriate [XML schema](https://github.com/OfficeDev/office-js-docs-pr/tree/master/docs/overview/schemas/taskpane).
+If `Yeoman Guide` is not in the list of add-ins, or if the `dev server` did not start, there may be a problem with the [manifest](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/add-in-manifests).  To [validate a manifest](https://docs.microsoft.com/en-us/office/dev/add-ins/testing/troubleshoot-manifest), type `npm run validate`.  This will check check whether the manifest adheres to the appropriate [XML schema](https://github.com/OfficeDev/office-js-docs-pr/tree/master/docs/overview/schemas/taskpane).
 
 If the manifest passes this test, enable runtime logging to see if it contains a semantic error, such as a missing resource definition.
 
 Problems sometimes occur if you open a new workbook (or if you start Excel by clicking its icon).  It's not clear how to prevent them.  It's also not clear why loading the add-in doesn't always work.
 
-If problems arise, particularly when installing a new version of XLray, try the following.
+If problems arise, particularly when installing a new version of Yeoman Guide, try the following.
 
 - Delete the contents of `~/Library/Containers/com.microsoft.Excel/Data/Documents/wef`.  Under Windows, go to `AppData\Local\Microsoft\Office\16.0` and type `rmdir /S Wef`.
 - Delete the contents of `~/Library/Containers/com.microsoft.Excel/Data/Library/Caches`.

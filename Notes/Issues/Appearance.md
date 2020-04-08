@@ -10,12 +10,6 @@ Replacing the taskpane with a dialog window, which is non-modal and has unlimite
 
 ## Excel peculiarities
 
-In Excel for Windows, clicking a button on a ribbon causes the ribbon to collapse.
-
-In Excel for the web, the `File` menu allows users to open only files that have been uploaded to `onedrive.live.com`.
-
-In Excel for the web, fewer functions (411 out of 479 as of December 2019) appear in the `Function` menu on the `Insert` tab and work with auto-complete.
-
 In Excel for the web, the location of the `Add-ins` group on the `Insert` ribbon depends on whether or not Excel's ribbons are simplified.
 
 Different versions of Excel display different tabs on the ribbon.  In Excel for the Mac, there is no `File` tab on the ribbon (it is a menu at the top of the window).  In Excel for the web, there is no `PageLayout` tab on the ribbon (the `Formulas` tab appeared only in 2020).

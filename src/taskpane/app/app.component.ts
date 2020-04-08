@@ -6,8 +6,7 @@
 import { Component } from "@angular/core";
 // eslint-disable-next-line no-unused-vars
 import { CommonModule } from "@angular/common";
-import { Log } from "./log";
-/* global Office, require, window */
+/* global localStorage, require, window */
 
 @Component({
   selector: "app-home",
@@ -15,21 +14,57 @@ import { Log } from "./log";
 })
 export default class AppComponent {
 
-  log = Log.getSingleton();
+  aboutClicks = '0';
+  helpClicks = '0';
+  inspectorClicks = '0';
+  toolboxClicks = '0';
+  selectionClicks = '0';
   
+  /**
+   * Constructs an AppComponent.
+   * 
+   * Retrieves click counts from `localStorage`.  Updates the count of how many times
+   * this constructor has been called.  Attaches an event listener to `localStorage` to
+   * detect changes in click counts.
+   */
   constructor() {
-    this.log.add('Platform: ' + Office.context.platform);
-    this.log.add('License: ' + Office.context.license['value']);
-    this.log.add('Office version: ' + Office.context.diagnostics.version);
-    this.log.add('Browser: ' + window.navigator.appName);
-    this.log.add('Browser version: ' + window.navigator.appVersion);
-    let version = 4;
-    // eslint-disable-next-line no-constant-condition
-    while (true) {
-      if (!Office.context.requirements.isSetSupported('ExcelApi', '1.' + version.toString())) { break; }
-      version++;
-    }
-    this.log.add('ExcelApi version 1.' + version.toString());
+    this.update();
+    let clicks = Number.parseInt(this.inspectorClicks) + 1;
+    this.inspectorClicks = clicks.toString();
+    localStorage.setItem('Yeoman Guide Inspector', this.inspectorClicks);
+    window.onstorage = () => { this.update(); };
+  }
+
+  /** Retrieves the click counts from `localStorage`. */
+  update() {
+    this.aboutClicks = this.fetch('About');
+    this.helpClicks = this.fetch('Help');
+    this.inspectorClicks = this.fetch('Inspector');
+    this.toolboxClicks = this.fetch('Toolbox');
+    this.selectionClicks = this.fetch('Selection');
+  }
+
+  /** Gets a click count from `localStorage`. */
+  fetch(what: string): string {
+    what = "Yeoman Guide " + what;
+    let count = localStorage.getItem(what);
+    if (!count) { count = '0'; }
+    return count;
+  }
+
+  /** Resets the click counts to zero and updates the display. */
+  public onReset() { 
+    localStorage.removeItem('Yeoman Guide About');
+    localStorage.removeItem('Yeoman Guide Help');
+    localStorage.removeItem('Yeoman Guide Inspector');
+    localStorage.removeItem('Yeoman Guide Toolbox');
+    localStorage.removeItem('Yeoman Guide Selection');
+    this.update();
+  }
+
+  /** Responds to a change in the Selection click count. */
+  public onSelectionChanged() {
+    this.selectionClicks = this.fetch('Selection');
   }
 
 }

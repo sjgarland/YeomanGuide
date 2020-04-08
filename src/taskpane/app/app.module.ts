@@ -2,10 +2,10 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from "@angular/common";
 import AppComponent from "./app.component";
-import { ExcelMonitorComponent } from "./ExcelMonitor/ExcelMonitor.component";
+import { ExcelInspectorComponent } from "./excel-inspector/excel-inspector.component";
 
 @NgModule({
-  declarations: [AppComponent, ExcelMonitorComponent],
+  declarations: [AppComponent, ExcelInspectorComponent],
   imports: [BrowserModule, CommonModule],
   bootstrap: [AppComponent]
 })

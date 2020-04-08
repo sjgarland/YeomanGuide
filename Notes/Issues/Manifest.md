@@ -15,6 +15,6 @@ There is no way to uses variables in manifests.  For example, it would be conven
     <IconUrl DefaultValue=$URL+"/images/xray32.png"/>  
     <bt:Image id="Icon.16x16" DefaultValue=$URL+"/images/xray16.png"/>
 
-could be used with `$URL="https://localhost:3000"` for local testing or with `$URL="https://stageonesoftware.com/XLray"` for deployment on the web.
+could be used with `$URL="https://localhost:3000"` for local testing or with `$URL="https://stageonesoftware.com/Yeoman Guide"` for deployment on the web.
 
 It is not clear how to create manifests for two separate add-ins, one more fully featured than the other and with a different name and different contents on its ribbon.

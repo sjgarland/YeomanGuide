@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
-  <Id>53e30403-713a-4849-9398-ffd8ec33ec8c</Id>  <!-- This replaces the Consoco Id -->
+  <Id>53e30403-713a-4849-9398-ffd8ec33ec8c</Id>                  <!-- This replaces the Consoco Id -->
   <Version>1.0.0.0</Version>
   <ProviderName>Stage One Software</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The DisplayName is used in the Office store and in the Office UI add-ins dialog.            -->
-  <DisplayName DefaultValue="XLray"/>
-  <Description DefaultValue="Development aid for Excel add-ins"/>
+  <DisplayName DefaultValue="Yeoman Guide"/>
+  <Description DefaultValue="Development guide for the Yeoman Office Generator"/>
   <!-- Icon for the personality menu.                                                              -->
-  <IconUrl DefaultValue="https://stageonesoftware.com/XLray/images/xray32.png"/>
+  <IconUrl DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeomanguide32.png"/>
   <!--Icon used by the Office Store, add-in installation, and task panes                           -->
-  <HighResolutionIconUrl DefaultValue="https://stageonesoftware.com/XLray/images/xray80.png"/>
+  <HighResolutionIconUrl DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeomanguide80.png"/>
   <SupportUrl DefaultValue="https://stageonesoftware.com"/>
   <AppDomains>
     <!-- These domains open in a task pane.  Others open in a new browser window.                  -->
@@ -24,7 +24,7 @@
     <!-- A host can be an Excel Workbook, a Word Document, or a PowerPoint Presentation.           -->
   </Hosts>  
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://stageonesoftware.com/XLray/taskpane.html"/>
+    <SourceLocation DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/taskpane.html"/>
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
@@ -51,10 +51,10 @@
             <!-- Each tab is divided into groups of controls, which are either Buttons or Menus.   -->
             <!-- Icon sizes 16, 32, 80 are required; sizes 20, 24, 40, 48, 64 are optional.        -->
             <!-- The action taken on a control click can be ExecuteFunction or ShowTaskPane.       -->
-            <CustomTab id="XLray.Tab">
+            <CustomTab id="YoGuide.Tab">
 
-              <!-- CommandsGroup on XLray.tab                                                      -->
-              <Group id="XLray.CommandsGroup">
+              <!-- CommandsGroup on YoGuide.tab                                                    -->
+              <Group id="YoGuide.CommandsGroup">
                 <Label resid="CommandsGroup.Label" />
                 <!-- It is not clear where these icons are used.                                   -->
                 <Icon>
@@ -63,28 +63,29 @@
                   <bt:Image size="64" resid="Icon.64x64" />
                   <bt:Image size="80" resid="Icon.80x80" />
                 </Icon>
-                <Control xsi:type="Button" id="XLray.TaskpaneButton">
-                  <Label resid="TaskpaneButton.Label" />
+                <Control xsi:type="Button" id="YoGuide.TaskpaneButton">
+                  <Label resid="Inspector.Label" />
                   <Supertip>
-                    <Title resid="TaskpaneButton.Label" />
-                    <Description resid="TaskpaneButton.Tooltip" />
+                    <Title resid="Inspector.Label" />
+                    <Description resid="Inspector.Tooltip" />
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="Icon.16x16" />
-                    <bt:Image size="32" resid="Icon.32x32" />
-                    <bt:Image size="64" resid="Icon.64x64" />
-                    <bt:Image size="80" resid="Icon.80x80" />
+                    <bt:Image size="16" resid="Inspector.16x16" />
+                    <bt:Image size="32" resid="Inspector.32x32" />
+                    <bt:Image size="64" resid="Inspector.64x64" />
+                    <bt:Image size="80" resid="Inspector.80x80" />
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>XLray.taskpane</TaskpaneId>
+                    <TaskpaneId>YoGuide.taskpane</TaskpaneId>
                     <SourceLocation resid="Taskpane.Url" />
+                    <Title resid="Inspector.Label"/>
                   </Action>
                 </Control>
-                <Control xsi:type="Button" id="XLray.CountButton">
-                  <Label resid="CountButton.Label" />
+                <Control xsi:type="Button" id="YoGuide.Toolbox">
+                  <Label resid="Toolbox.Label" />
                   <Supertip>
-                    <Title resid="CountButton.Label" />
-                    <Description resid="CountButton.Tooltip" />
+                    <Title resid="Toolbox.Label" />
+                    <Description resid="Toolbox.Tooltip" />
                   </Supertip>
                   <Icon>
                     <bt:Image size="16" resid="Count.16x16" />
@@ -98,8 +99,8 @@
                 </Control>
               </Group>
 
-              <!-- InformationGroup on XLray.tab                                                   -->
-              <Group id="XLray.InformationGroup">
+              <!-- InformationGroup on YoGuide.tab                                                  -->
+              <Group id="YoGuide.InformationGroup">
                 <Label resid="Information.Label" />
                 <Icon>
                   <bt:Image size="16" resid="About.16x16" />
@@ -107,7 +108,7 @@
                   <bt:Image size="64" resid="About.64x64" />
                   <bt:Image size="80" resid="About.80x80" />
                 </Icon>
-                <Control xsi:type="Button" id="XLray.HelpButton">
+                <Control xsi:type="Button" id="YoGuide.HelpButton">
 		              <Label resid="Help.Label" />
                   <Supertip>
                     <Title resid="Help.Label" />
@@ -120,10 +121,10 @@
                     <bt:Image size="80" resid="Help.80x80" />
                   </Icon>
                   <Action xsi:type="ExecuteFunction">
-                    <FunctionName>showHelpDialog</FunctionName>
+                    <FunctionName>showHelp</FunctionName>
                   </Action>
                 </Control>
-                <Control xsi:type="Button" id="XLray.AboutButton">
+                <Control xsi:type="Button" id="YoGuide.AboutButton">
                   <Label resid="About.Label" />
                   <Supertip>
                     <Title resid="About.Label" />
@@ -136,7 +137,7 @@
                     <bt:Image size="80" resid="About.80x80" />
                   </Icon>
                   <Action xsi:type="ExecuteFunction">
-                    <FunctionName>showAboutDialog</FunctionName>
+                    <FunctionName>showAbout</FunctionName>
                   </Action>
                 </Control>
               </Group>
@@ -151,45 +152,49 @@
     <!--The URLs for all resources should use https.                                               -->
     <Resources>
       <bt:Images>
-        <bt:Image id="About.16x16" DefaultValue="https://stageonesoftware.com/XLray/images/questionMark16.png"/>
-        <bt:Image id="About.32x32" DefaultValue="https://stageonesoftware.com/XLray/images/questionMark32.png"/>
-        <bt:Image id="About.64x64" DefaultValue="https://stageonesoftware.com/XLray/images/questionMark64.png"/>
-        <bt:Image id="About.80x80" DefaultValue="https://stageonesoftware.com/XLray/images/questionMark80.png"/>
-        <bt:Image id="Count.16x16" DefaultValue="https://stageonesoftware.com/XLray/images/count16.png"/>
-        <bt:Image id="Count.32x32" DefaultValue="https://stageonesoftware.com/XLray/images/count32.png"/>
-        <bt:Image id="Count.64x64" DefaultValue="https://stageonesoftware.com/XLray/images/count64.png"/>
-        <bt:Image id="Count.80x80" DefaultValue="https://stageonesoftware.com/XLray/images/count80.png"/>
-        <bt:Image id="Help.16x16" DefaultValue="https://stageonesoftware.com/XLray/images/book16.png"/>
-        <bt:Image id="Help.32x32" DefaultValue="https://stageonesoftware.com/XLray/images/book32.png"/>
-        <bt:Image id="Help.64x64" DefaultValue="https://stageonesoftware.com/XLray/images/book64.png"/>
-        <bt:Image id="Help.80x80" DefaultValue="https://stageonesoftware.com/XLray/images/book80.png"/>        
-        <bt:Image id="Icon.16x16" DefaultValue="https://stageonesoftware.com/XLray/images/xray16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://stageonesoftware.com/XLray/images/xray32.png"/>
-        <bt:Image id="Icon.64x64" DefaultValue="https://stageonesoftware.com/XLray/images/xray64.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://stageonesoftware.com/XLray/images/xray80.png"/>
+        <bt:Image id="About.16x16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark16.png"/>
+        <bt:Image id="About.32x32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark32.png"/>
+        <bt:Image id="About.64x64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark64.png"/>
+        <bt:Image id="About.80x80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark80.png"/>
+        <bt:Image id="Count.16x16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/count16.png"/>
+        <bt:Image id="Count.32x32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/count32.png"/>
+        <bt:Image id="Count.64x64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/count64.png"/>
+        <bt:Image id="Count.80x80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/count80.png"/>
+        <bt:Image id="Help.16x16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book16.png"/>
+        <bt:Image id="Help.32x32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book32.png"/>
+        <bt:Image id="Help.64x64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book64.png"/>
+        <bt:Image id="Help.80x80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book80.png"/>        
+        <bt:Image id="Icon.16x16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
+        <bt:Image id="Icon.64x64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
+        <bt:Image id="Inspector.16x16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier16.png"/>
+        <bt:Image id="Inspector.32x32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier32.png"/>
+        <bt:Image id="Inspector.64x64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier64.png"/>
+        <bt:Image id="Inspector.80x80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
-        <bt:Url id="Commands.Url" DefaultValue="https://stageonesoftware.com/XLray/commands.html" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://stageonesoftware.com/XLray/taskpane.html" />
+        <bt:Url id="Commands.Url" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/commands.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/taskpane.html" />
       </bt:Urls>
       <bt:ShortStrings>                                                    <!-- Max 125 characters -->
         <bt:String id="About.Label" DefaultValue="About" />
-        <bt:String id="CommandsGroup.Label" DefaultValue="Actions" />
-        <bt:String id="CountButton.Label" DefaultValue="Count clicks" />
-        <bt:String id="CustomTab.Label" DefaultValue="XLray" />
-        <bt:String id="GetStarted.Title" DefaultValue="Get started with XLray" />
+        <bt:String id="CommandsGroup.Label" DefaultValue="View" />
+        <bt:String id="CustomTab.Label" DefaultValue="Yeoman Guide" />
+        <bt:String id="GetStarted.Title" DefaultValue="Get started with Yeoman Guide" />
         <bt:String id="Help.Label" DefaultValue="Help" />
         <bt:String id="Information.Label" DefaultValue="Information" />
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane" />
+        <bt:String id="Inspector.Label" DefaultValue="Inspector" />
+        <bt:String id="Toolbox.Label" DefaultValue="Toolbox" />
       </bt:ShortStrings>
       <bt:LongStrings>                                                     <!-- Max 250 characters -->
-        <bt:String id="About.Tooltip" DefaultValue="Click for information about XLray" />
-        <bt:String id="CountButton.Tooltip" DefaultValue="Increment the count of how many times this button has been clicked" />
-        <bt:String id="GetStarted.Description" DefaultValue="XLray loaded succesfully.  Choose the XLray tab to use it." />
-        <bt:String id="Help.Tooltip" DefaultValue="Click for XLray documentation" />
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to show the XLray taskpane" />
-      </bt:LongStrings>
+        <bt:String id="About.Tooltip" DefaultValue="Click for information about Yeoman Guide" />
+        <bt:String id="GetStarted.Description" DefaultValue="Yeoman Guide loaded succesfully.  Choose the Yeoman Guide tab to use it." />
+        <bt:String id="Help.Tooltip" DefaultValue="Click for Yeoman Guide documentation" />
+        <bt:String id="Inspector.Tooltip" DefaultValue="Click to show the inspector pane" />
+        <bt:String id="Toolbox.Tooltip" DefaultValue="Click to show the toolbox pane" />
+   </bt:LongStrings>
     </Resources>
   </VersionOverrides>
 

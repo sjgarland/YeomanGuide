@@ -16,8 +16,12 @@ It is not possible to use add-ins obtained from Microsoft's [AppSource](https://
 
 ## Other issues
 
+In Excel for Windows, clicking a button on a ribbon causes the ribbon to collapse.
+
 The `File` menu on Excel for the web allows users to open only files that have been uploaded to `onedrive.live.com`.
 
 Fewer functions (411 out of 479 as of December 2019) appear in the `Function` menu on the `Insert` tab and work with auto-complete, on Excel for the web.
 
 There are problems when using Chrome and Safari with Excel for the web.  They allow an external web page to be viewed in a dialog window, but fail when you try to scroll vertically.  They also require users to allow displaying the dialog.
+
+There are problems with using `window.open` in a script in `commands.html`: an exceedingly long delay occurs with Excel for the web before a window opens on subsequent invocations.  The browser's debugger shows that some process was stuck, and the console reports _All records throttled_.  This delay does not occur if `window.open` is used in code for a taskpane.

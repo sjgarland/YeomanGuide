@@ -1,6 +1,18 @@
 
-<excel-monitor></excel-monitor>
+<h2>Excel information</h2>
 
-<h2>Event log</h2>
+<excel-inspector (selectionChanged)="onSelectionChanged()"></excel-inspector>
 
-<span class="log" *ngFor ="let s of log.get()">{{s}}<br></span>
+<h2>Click counts</h2>
+
+<table>
+    <tr><td>Inspector</td> <td>{{inspectorClicks}}</td></tr>
+    <tr><td>Toolbox</td>   <td>{{toolboxClicks}}</td></tr>
+    <tr><td>About</td>     <td>{{aboutClicks}}</td></tr>
+    <tr><td>Help</td>      <td>{{helpClicks}}</td></tr>
+    <tr><td>Selection</td> <td>{{selectionClicks}}</td></tr>
+</table>
+
+<p class="center">
+    <button class="large" (click)="onReset()">Reset</button>
+</p>

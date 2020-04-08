@@ -55,9 +55,9 @@ module.exports = async (env, options) => {
       }),
       /*
       new HtmlWebpackPlugin({
-        filename: "monitor.html",
-        template: "./src/taskpane/app/monitor/monitor.component.html",
-        chunks: ["polyfill", "monitor"]
+        filename: "inspector.html",
+        template: "./src/taskpane/app/inspector/inspector.component.html",
+        chunks: ["polyfill", "inspector"]
       }),
       */
       new CopyWebpackPlugin([
