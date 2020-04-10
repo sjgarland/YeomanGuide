@@ -3,7 +3,7 @@
 * Copyright (c) 2020 Stage One Software.
 *-----------------------------------------------------------------*/
 
-import { Component, Input, ChangeDetectorRef, Inject, EventEmitter, Output } from '@angular/core';
+import { Component, Input, Inject, EventEmitter, Output, NgZone } from '@angular/core';
 // eslint-disable-next-line no-unused-vars
 import { CommonModule } from "@angular/common";
 /* global console, Excel, localStorage, Office, require, window */
@@ -34,7 +34,7 @@ export class ExcelInspectorComponent {
   
   /** Generates the necessary information.  Attaches an event listener to detect changes. */
   // eslint-disable-next-line no-unused-vars
-  constructor(@Inject(ChangeDetectorRef) private ref: ChangeDetectorRef) {
+  constructor(@Inject(NgZone) private ngZone: NgZone) {
     this.platform = Office.context.platform.toString();
     this.version = Office.context.diagnostics.version;
     this.browser = this.getBrowser();
@@ -74,29 +74,40 @@ export class ExcelInspectorComponent {
   /**
    * Obtains the address of the currently selected range from Excel.
    * 
-   * Increments the count of the number of times `this.selectedRange` has
-   * been set.  Emits an event to notify `AppComponent` that the value
-   * maintained in `localStorage` for this counter has changed.
+   * Increments the count of the number of times `this.selectedRange` has been
+   * set.  Emits a `selectionChanged` event to notify `AppComponent` that the
+   * value maintained in `localStorage` for this counter has changed.
    * 
-   * Angular does not seem to detect that `this.selectedRange` has changed
-   * when this method is invoked by `this.listen` in response to an event
-   * that occurs in Excel rather than in the taskpane.  Hence this method
-   * uses a `ChangeDetectorRef` to force Angular to detect the change.
+   * Special care is needed in the implementation of 'findSelectedRange` to
+   * make Angular detect both the change here in `this.selectedRange` and the
+   * change in `AppComponent` to `this.selectionClicks` triggered by the
+   * emitted `selectionChanged` event: Angular does not automatically detect
+   * changes caused by code running outside its asynchronous execution zone
+   * (e.g., in `findSelectedRange`, which runs in Excel's execution zone).
+   * 
+   * To exercise this care, we force the change to `this.selectedRange` and the
+   * omission of the `selectionChanged` event to occur in Angular's zone.  An
+   * inferior alternative is to inject `ChangeDetectorRef` instead of `NgZone`
+   * in the constructor and to use `this changeDetectorRef.detectChanges()` here
+   * instead of `this.ngZone.run`.  However, this does not do enough: it makes
+   * Angular detect the change to `this.selectedRange` in this component, but
+   * not the change to `this.selectionClicks` in `AppComponent`, which still
+   * occurs outside Angular's zone. 
    */
   async findSelectedRange() {
     let count = localStorage.getItem('Yeoman Guide Selection');
     let clicks = (count ? Number.parseInt(count) : 0) + 1;
     localStorage.setItem('Yeoman Guide Selection', clicks.toString());
-    this.selectionChanged.emit();
+    let newSelection = '';
     try {
       await Excel.run(async context => {
         const range = context.workbook.getSelectedRange();
         range.load("address");
         await context.sync();
-        this.selectedRange = range.address;
+        newSelection = range.address;
       });
     } catch (error) { console.error(error); }
-    this.ref.detectChanges();
+    this.ngZone.run(() => { this.selectedRange = newSelection; this.selectionChanged.emit(); });
   }
 
   /**
