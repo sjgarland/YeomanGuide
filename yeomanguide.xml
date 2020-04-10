@@ -8,9 +8,9 @@
   <DisplayName DefaultValue="Yeoman Guide"/>
   <Description DefaultValue="Development guide for the Yeoman Office Generator"/>
   <!-- Icon for the personality menu.                                                              -->
-  <IconUrl DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeomanguide32.png"/>
+  <IconUrl DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman32.png"/>
   <!--Icon used by the Office Store, add-in installation, and task panes                           -->
-  <HighResolutionIconUrl DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeomanguide80.png"/>
+  <HighResolutionIconUrl DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman80.png"/>
   <SupportUrl DefaultValue="https://stageonesoftware.com"/>
   <AppDomains>
     <!-- These domains open in a task pane.  Others open in a new browser window.                  -->
