@@ -1,22 +1,22 @@
  html,
  body {
-     width: 100%;
-     height: 100%;
-     margin: 5pt;
-     padding: 0;
- }
- p, ul {
-    font-size: 14pt;
- }
+  width: 100%;
+  height: 100%;
+  margin: 5pt;
+  padding: 0;
+}
+p, ul {
+  font-size: 14pt;
+}
 
- td {
-     padding-right: 10px;
- }
+td {
+  padding-right: 10px;
+}
 
 .center {
-    text-align: center;
-  }
-  
-  .large {
-    font-size: 14pt;
-  }
+  text-align: center;
+}
+
+.large {
+  font-size: 14pt;
+}
