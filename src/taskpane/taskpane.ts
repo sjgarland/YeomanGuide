@@ -14,7 +14,8 @@ import AppModule from "./app/app.module";
 /* global console, document, Office */
 
 Office.initialize = () => {
-  document.getElementById("sideload-msg").style.display = "none";
+  const msg = document.getElementById("sideload-msg");
+  if (msg) { msg.style.display = "none"; }
 
   // Bootstrap the app
   platformBrowserDynamic()
