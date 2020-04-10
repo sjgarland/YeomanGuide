@@ -20,7 +20,7 @@ Improvements in existing tools that resolve some of the [problems](../Issues/Too
 
 [Wider taskpanes](../Issues/Appearance.md).
 
-A means of [sharing state or communication](../Issues/Architecture.md) between the code behind (multiple)) task panes and ribbon controls.
+A means of [sharing state or communication](../Issues/Architecture.md) between the code behind (multiple) task panes and ribbon controls.
 
 Additional [manifest](../Issues/Manifest.md) capabilities that would allow checkboxes, radio buttons, separators, and inactive elements in menus and on the ribbon.
 

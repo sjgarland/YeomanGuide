@@ -1,20 +1,20 @@
 # How to Develop Excel Add-ins
 
-The code produced by the [Yo Office generator](https://github.com/OfficeDev/generator-office) for the Angular/TypeScript framework has problems that prevent successful deployment.  These notes describe these problems and fixes for them that are incorporated in this Yeoman Guide add-in.
+The code produced by the [Yo Office generator](https://github.com/OfficeDev/generator-office) for the Angular/TypeScript framework has problems that prevent successful deployment.  These notes describe these problems and how tp fix them.  These fixes are illustrated in the Yeoman Guide add-in.
 
 ## Problems
 
-**Problem:** The add-in's icon did not appear during sideloading (from the _Insert_ tab).  It appeared with the _Show Taskpane_ button for the add-in on Excel's _Home_ tab when testing with _npm run_, but not when running a production build with the manifest _Yeoman Guide.xml_.
+**Problem:** The add-in's icon does not appear during sideloading (from the _Insert_ ribbon).  It appears with the _Show Taskpane_ button on Excel's _Home_ ribbon when using _npm run start_ to run Excel, but not when starting Excel and sideloading the manifest _yeomanguide.xml_.
 
-**Fix:** Added an entry to the _CopyWebpackPlugin_ in _webpack.config.js_ to include the _assets_ directory in the production build (renamed here to the _images_ directory).
+**Fix:** Add an entry to the _CopyWebpackPlugin_ in _webpack.config.js_ to include the _assets_ directory in the production build (renamed in Yeoman Guide to the _images_ directory).
 
-**Problem:** The Angular _*ngFor_ directive was recognized when testing with _npm run_, but not when running a production build.  The console log for the task pane displayed the error messages
+**Problem:** The Angular _*ngFor_ directive is recognized when using _npm run start_, but not when running a production build.  The console log for the task pane displays the error messages
 
     Can't bind to 'ngforOf' since it isn't a known property of 'li'.
 
     Property binding ngforOf not used by any directive on an embedded template. Make sure that the property name is spelled correctly and all directives are listed in the "@NgModule.declarations".
 
-**Fix:** (1) Included _CommonModule_ in _@NgModule.declarations_ in _app.module.ts_.  Imported it in _app.component.ts_ (the same must be done in any other component that uses Angular directives).  (2) Imported _BrowserModule_ in _taskpane.ts_.  (3) Replaced _use: "html-loader"_ in _webpack.config.js_ by the following.
+**Fix:** (1) Include _CommonModule_ in _@NgModule.declarations_ in _app.module.ts_.  Import it in _app.component.ts_.  Do the same in any other component that uses Angular directives.  (2) Import _BrowserModule_ in _taskpane.ts_.  (3) Replace _use: "html-loader"_ in _webpack.config.js_ by the following.
 
           use: [
             {
@@ -23,7 +23,7 @@ The code produced by the [Yo Office generator](https://github.com/OfficeDev/gene
             }
           ]
   
-Explicit inclusion of other [Angular modules](https://angular.io/guide/frequent-ngmodules) are needed to support the use of Angular forms and routing.
+Explicit inclusion of other [Angular modules](https://angular.io/guide/frequent-ngmodules) is needed to support the use of Angular forms and routing.
 
 ## Customizations
 
@@ -35,7 +35,7 @@ Generate a new _&lt;Id&gt;_.  Change the provider and display names, description
 
 Make a copy of the manifest in which all occurrences of <https://localhost:3000> are replaced by the URL for a directory containing the production code generated in the folder _dist_ by _npm run build_.
 
-For Yeoman Guide, the folder _dist_ was uploaded to _stageonesoftware.com_ and renamed to _Yeoman Guide_.  The manifest _Yeoman Guide.xml_ uses the URL <https://stageonesoftware.com/Yeoman Guide> instead of <https://localhost:3000>.
+For Yeoman Guide, the folder _dist_ was uploaded to _stageonesoftware.com_ and renamed to _YeomanGuide_.  The manifest _Yeoman Guide.xml_ uses the URL <https://stageonesoftware.com/YeomanGuide/dist> instead of <https://localhost:3000>.
 
 ### package.json
 
@@ -49,13 +49,9 @@ Change the title and the sideload message.
 
 Change the code in the _run_ method.  If the _run_ method generates content for the task pane, create a constructor that calls _run_ to generate that content before the task pane is displayed.
 
-Yeoman Guide was customized by changing code that highlights and logs the selected range to set an instance variable instead, adding a constructor to ensure this variable is set before the task pane is displayed, and adding a sample list of strings for use with _*ngFor_.
-
 ### app.component.html
 
 Replace the content.  
-
-In Yeoman Guide, the new content used an Angular directive (_*ngFor_) and selector (_&lt;app-test&gt;&lt;/app-test&gt;_), and it displayed the value _{{selectedRange}}_ of the new instance variable.
 
 ### assets
 
@@ -67,22 +63,9 @@ Why doesn't _templateUrl_ work inside _@Component_ in _app.component.ts_ and _te
 
 Can the Angular CLI be installed and used to generate components and services?
 
-What does Office store in its different caches?
-
-- `~/Library/Containers/com.microsoft.Office365ServiceV2/Data/Library/Caches` has two subdirectories.  The `Microsoft` subdirectory contains a log file.
-- `~/Library/Containers/com.microsoft.Excel/Data/Library/Caches/` has four subdirectories.  The `Microsoft` subdirectory contains a log file.
-
 Can the "Got it" pop-up, which occurs when the add-in is loaded, be eliminated?
 
 Can the _i_ button in the task pane be eliminated?  Clicking it pops up a _personality menu_ with items primarily useful for debugging.
-
-Why does code that works with `ng serve`, `ng build`, and `angular.json` not work with `npm start` and `webpack.config.js`?  Can the following modifications be eliminated?
-
-- Modified `imports` statements to use `../..` instead of `src/`.
-- Added `@Inject(SynchronizerService)`, `Inject(ViewService)` in component constructors.
-- Removed the parameter from `@Injectable(({providedIn: 'root'})`.
-
-How do `ng serve` and `npm start` supply actual parameters to constructors?
 
 ## Copyright
 

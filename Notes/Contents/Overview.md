@@ -4,7 +4,7 @@ The following notes provide information about Yeoman Guide and the development o
 
 ## Contents
 
-[Development agenda for Yeoman Guide](Agenda.md)  
+[Development tasks for Yeoman Guide](Agenda.md)  
 [Overview of Yeoman Guide documentation](Overview.md) (this file)  
 [Wishlist of features and tools](Wishlist.md)
 

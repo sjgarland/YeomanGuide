@@ -4,31 +4,38 @@
 
 Share in AppSource.
 
-## Enable use of additional Angular in the production build
-
-The Angular `*ngFor` directive also causes problems.  The console log for the task pane shows _Error: Template parse errors: Can't bind to 'ngforOf' since it isn't a known property of 'tr'_, Excel issues an error alert: _Custom UI Runtime Error in 53e30403-713a-4849-9398-ffd8ec33ec8c_developer  An error occurred while calling the callback: "OsfImg"_, and the Yeoman Guide icon does not appear with the occurrences of Yeoman Guide in the `Home` tab and under `Insert > My Add-ins > Developer Add-ins`.  
-
-These problems may be caused by inadequate configurations in `tsconfig.json` and `webpack.config.js`.  See [Angular in Depth](https://medium.com/angular-in-depth/configuring-typescript-compiler-a84ed8f87e3).  Also investigate
-
-- The purpose of the compiler option `"jsx": "react"` when not using React.
-- How [module resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html) works.
-- [Code splitting](https://webpack.js.org/guides/code-splitting/).
-
 ## Coding
 
-Catch and report Excel events: selection of a different cell, changes in the value of the displayed formula, insertion or deletion of a row or column.  Show other information, if it exists: decoded license information, user identity, process numbers (as part of the context to see which components can communicate with which).
+Implement the Toolbox taskpane.
 
-## Investigation and documentation
+Use [code splitting](https://webpack.js.org/guides/code-splitting/).
+
+Make the title bar for the task pane stand out from its contents in Excel for the web, where both have a white background.  A gray background makes it stand out in Excel for Windows and the Mac.  Potential solution: give the line at the top of the pane a different background color.
+
+## Investigation
 
 Check usage of Supertip titles and descriptions by the different versions of Excel.  Check usage of ribbon group icons.  Document the findings in `Notes/Issues/Manifest.md`.
+
+Investigate why code that works with `ng serve`, `ng build`, and `angular.json` not work with `npm start` and `webpack.config.js`.  Can the following modifications be eliminated?
+
+- Modifying `imports` statements to use `../..` instead of `src/`.
+- Adding `@Inject(SynchronizerService)`, `Inject(ViewService)` in component constructors.
+- Removing the parameter from `@Injectable(({providedIn: 'root'})`.
+
+How do `ng serve` and `npm start` supply actual parameters to constructors?
+
+Determine what Office stores in its different caches.
+
+- `~/Library/Containers/com.microsoft.Office365ServiceV2/Data/Library/Caches` has two subdirectories.  The `Microsoft` subdirectory contains a log file.
+- `~/Library/Containers/com.microsoft.Excel/Data/Library/Caches/` has four subdirectories.  The `Microsoft` subdirectory contains a log file.
 
 Investigate differences between the builders employed by `ng`, `npm`, `webpack`, and `yarn`.
 
 Investigate [licensing](https://docs.microsoft.com/en-us/office/dev/store/add-license-checks-to-office-and-sharepoint-add-ins?redirectedfrom=MSDN.)
 
-## Other issues
+Investigate the purpose of the compiler option `"jsx": "react"` when not using React.
 
-Make the title bar for the task pane stand out from its contents in Excel for the web, where both have a white background.  A gray background makes it stand out in Excel for Windows and the Mac.  Potential solution: give the line at the top of the pane a different background color.
+Investigate how [module resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html) works.
 
 Investigate problems with scrollbars.
 
