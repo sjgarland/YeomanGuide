@@ -173,7 +173,8 @@
         <bt:Image id="Tools.16" DefaultValue="https://localhost:3000/images/tools16.png"/>
         <bt:Image id="Tools.32" DefaultValue="https://localhost:3000/images/tools32.png"/>
         <bt:Image id="Tools.64" DefaultValue="https://localhost:3000/images/tools64.png"/>
-        <bt:Image id="Tools.80" DefaultValue="https://localhost:3000/images/tools80.png"/>      </bt:Images>
+        <bt:Image id="Tools.80" DefaultValue="https://localhost:3000/images/tools80.png"/>
+      </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
         <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html" />
