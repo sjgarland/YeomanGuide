@@ -58,10 +58,10 @@
                 <Label resid="CommandsGroup.Label" />
                 <!-- It is not clear where these icons are used.                                   -->
                 <Icon>
-                  <bt:Image size="16" resid="Icon.16x16" />
-                  <bt:Image size="32" resid="Icon.32x32" />
-                  <bt:Image size="64" resid="Icon.64x64" />
-                  <bt:Image size="80" resid="Icon.80x80" />
+                  <bt:Image size="16" resid="Icon.16" />
+                  <bt:Image size="32" resid="Icon.32" />
+                  <bt:Image size="64" resid="Icon.64" />
+                  <bt:Image size="80" resid="Icon.80" />
                 </Icon>
                 <Control xsi:type="Button" id="YoGuide.TaskpaneButton">
                   <Label resid="Inspector.Label" />
@@ -70,10 +70,10 @@
                     <Description resid="Inspector.Tooltip" />
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="Inspector.16x16" />
-                    <bt:Image size="32" resid="Inspector.32x32" />
-                    <bt:Image size="64" resid="Inspector.64x64" />
-                    <bt:Image size="80" resid="Inspector.80x80" />
+                    <bt:Image size="16" resid="Inspector.16" />
+                    <bt:Image size="32" resid="Inspector.32" />
+                    <bt:Image size="64" resid="Inspector.64" />
+                    <bt:Image size="80" resid="Inspector.80" />
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
                     <TaskpaneId>YoGuide.taskpane</TaskpaneId>
@@ -88,13 +88,15 @@
                     <Description resid="Toolbox.Tooltip" />
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="Count.16x16" />
-                    <bt:Image size="32" resid="Count.32x32" />
-                    <bt:Image size="64" resid="Count.64x64" />
-                    <bt:Image size="80" resid="Count.80x80" />
+                    <bt:Image size="16" resid="Tools.16" />
+                    <bt:Image size="32" resid="Tools.32" />
+                    <bt:Image size="64" resid="Tools.64" />
+                    <bt:Image size="80" resid="Tools.80" />
                   </Icon>
-                  <Action xsi:type="ExecuteFunction">
-                    <FunctionName>count</FunctionName>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>YoGuide.toolbox</TaskpaneId>
+                    <SourceLocation resid="Toolbox.Url" />
+                    <Title resid="Toolbox.Label"/>
                   </Action>
                 </Control>
               </Group>
@@ -103,10 +105,10 @@
               <Group id="YoGuide.InformationGroup">
                 <Label resid="Information.Label" />
                 <Icon>
-                  <bt:Image size="16" resid="About.16x16" />
-                  <bt:Image size="32" resid="About.32x32" />
-                  <bt:Image size="64" resid="About.64x64" />
-                  <bt:Image size="80" resid="About.80x80" />
+                  <bt:Image size="16" resid="About.16" />
+                  <bt:Image size="32" resid="About.32" />
+                  <bt:Image size="64" resid="About.64" />
+                  <bt:Image size="80" resid="About.80" />
                 </Icon>
                 <Control xsi:type="Button" id="YoGuide.HelpButton">
 		              <Label resid="Help.Label" />
@@ -115,10 +117,10 @@
                     <Description resid="Help.Tooltip" />
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="Help.16x16" />
-                    <bt:Image size="32" resid="Help.32x32" />
-                    <bt:Image size="64" resid="Help.64x64" />
-                    <bt:Image size="80" resid="Help.80x80" />
+                    <bt:Image size="16" resid="Help.16" />
+                    <bt:Image size="32" resid="Help.32" />
+                    <bt:Image size="64" resid="Help.64" />
+                    <bt:Image size="80" resid="Help.80" />
                   </Icon>
                   <Action xsi:type="ExecuteFunction">
                     <FunctionName>showHelp</FunctionName>
@@ -131,10 +133,10 @@
                     <Description resid="About.Tooltip" />
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="About.16x16" />
-                    <bt:Image size="32" resid="About.32x32" />
-                    <bt:Image size="64" resid="About.64x64" />
-                    <bt:Image size="80" resid="About.80x80" />
+                    <bt:Image size="16" resid="About.16" />
+                    <bt:Image size="32" resid="About.32" />
+                    <bt:Image size="64" resid="About.64" />
+                    <bt:Image size="80" resid="About.80" />
                   </Icon>
                   <Action xsi:type="ExecuteFunction">
                     <FunctionName>showAbout</FunctionName>
@@ -152,31 +154,32 @@
     <!--The URLs for all resources should use https.                                               -->
     <Resources>
       <bt:Images>
-        <bt:Image id="About.16x16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark16.png"/>
-        <bt:Image id="About.32x32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark32.png"/>
-        <bt:Image id="About.64x64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark64.png"/>
-        <bt:Image id="About.80x80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark80.png"/>
-        <bt:Image id="Count.16x16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/count16.png"/>
-        <bt:Image id="Count.32x32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/count32.png"/>
-        <bt:Image id="Count.64x64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/count64.png"/>
-        <bt:Image id="Count.80x80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/count80.png"/>
-        <bt:Image id="Help.16x16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book16.png"/>
-        <bt:Image id="Help.32x32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book32.png"/>
-        <bt:Image id="Help.64x64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book64.png"/>
-        <bt:Image id="Help.80x80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book80.png"/>        
-        <bt:Image id="Icon.16x16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
-        <bt:Image id="Icon.64x64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
-        <bt:Image id="Inspector.16x16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier16.png"/>
-        <bt:Image id="Inspector.32x32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier32.png"/>
-        <bt:Image id="Inspector.64x64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier64.png"/>
-        <bt:Image id="Inspector.80x80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier80.png"/>
+        <bt:Image id="About.16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark16.png"/>
+        <bt:Image id="About.32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark32.png"/>
+        <bt:Image id="About.64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark64.png"/>
+        <bt:Image id="About.80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/questionMark80.png"/>
+        <bt:Image id="Help.16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book16.png"/>
+        <bt:Image id="Help.32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book32.png"/>
+        <bt:Image id="Help.64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book64.png"/>
+        <bt:Image id="Help.80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/book80.png"/>        
+        <bt:Image id="Icon.16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
+        <bt:Image id="Icon.32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
+        <bt:Image id="Icon.64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
+        <bt:Image id="Icon.80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/Yeoman.png"/>
+        <bt:Image id="Inspector.16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier16.png"/>
+        <bt:Image id="Inspector.32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier32.png"/>
+        <bt:Image id="Inspector.64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier64.png"/>
+        <bt:Image id="Inspector.80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/magnifier80.png"/>
+        <bt:Image id="Tools.16" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/tools16.png"/>
+        <bt:Image id="Tools.32" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/tools32.png"/>
+        <bt:Image id="Tools.64" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/tools64.png"/>
+        <bt:Image id="Tools.80" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/images/tools80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
         <bt:Url id="Commands.Url" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/commands.html" />
         <bt:Url id="Taskpane.Url" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/taskpane.html" />
+        <bt:Url id="Toolbox.Url" DefaultValue="https://stageonesoftware.com/YeomanGuide/dist/taskpane2.html" />
       </bt:Urls>
       <bt:ShortStrings>                                                    <!-- Max 125 characters -->
         <bt:String id="About.Label" DefaultValue="About" />
