@@ -1,4 +1,4 @@
-# Issues with add-in appearance
+# Notes on add-in appearance
 
 ## Major issues
 
@@ -23,6 +23,8 @@ Add-ins do not present a uniform appearance across different platforms.
 Only Excel for Windows displays both the `Title` and  `Description` in the `Supertip` for a control.  Excel for the Mac displays only the `Title`.  Excel for the web displays neither.
 
 No version of Excel displays the `Icon` for a group on a tab on the ribbon.
+
+The title of  task pane does not stand out from its contents in Excel for the web, where both have a white background.  A gray background makes it stand out in Excel for Windows and the Mac. 
 
 The title bar for floating dialogs is different on different platforms.  Excel for the Mac shows _Office Add-ins - localhost_.  Excel for the web shows different titles with different browsers: a proper title with Chrome, but with a banner below the title with security information about _localhost:3000_; _localhost_ with Safari.
 

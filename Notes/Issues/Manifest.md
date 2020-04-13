@@ -1,8 +1,18 @@
-# Issues with add-in manifests
+# Notes on manifests for Microsoft 365 add-ins
 
-The contents and behavior of an add-in's ribbon must be defined in a manifest, written in XML using a very limited set of options, rather than in source files written in HTML, CSS, and JavaScript.
+A Microsoft 365 add-in is defined by a [manifest](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/add-in-manifests), written in XML, which identifies the add-in, the controls it adds to an Office ribbon, and the actions taken when users click those controls.
 
-The manifest specifies actions taken in response to clicks on buttons or menu items defined in the manifest.  There are two kinds of actions: `ShowTaskpane` (for one or more taskpanes with specified URLs) and `ExecuteFunction` (for functions defined in a single `FunctionFile` such as `commands.html`).
+Code in `manifest.xml` causes buttons to appear on one of Excel's command tabs: TabHome, TabInsert, TabPageLayoutExcel, TabFormulas, TabData, TabReview, TabView, TabDeveloper, TabAddIns, TabPrintPreview, TabBackgroundRemoval.  Such code begins with the following lines.
+
+    <ExtensionPoint xsi:type="PrimaryCommandSurface">
+    <!-- OfficeTab extends an existing tab.  CustomTab creates a new tab. -->
+        <OfficeTab id="TabFormulas">
+
+There are two kinds of actions: `ShowTaskpane` (for one or more taskpanes with specified URLs) and `ExecuteFunction` (for functions defined in a single `FunctionFile` such as `commands.html`).
+
+## Issues with manifests
+
+The appearance and behavior of controls on an Office ribbon must be defined in the manifest, written in XML with a very limited set of options, rather than in source files written in HTML, CSS, and JavaScript.
 
 There is no way to create [checkboxes](<https://stackoverflow.com/questions/55173467/office-add-in-ribbon-checkbox>), radio buttons, separators, or inactive elements in menus or on the ribbon.
 

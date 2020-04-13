@@ -1,4 +1,4 @@
-# Issues with the Javascript APIs for Excel and Office
+# Notes on the Javascript APIs for Excel and Office
 
 ## Screen updating
 

@@ -1,42 +1,24 @@
 # Notes on Angular
 
-[Angular](https://angular.io) is one of several frameworks for constructing single-page web applications.  It works well with HTML and TypeScript.
+[Angular](https://angular.io) is a popular framework, developed by Google, for constructing single-page web applications.  Other frameworks include [React](https://reactjs.org/), developed by Facebook, and [Vue](https://vuejs.org/).  React is easy to learn, but Angular provides much better support for the model-view-controller design pattern.  The [Angular 8 Tutorial](https://coursetro.com/posts/code/174/Angular-8-Tutorial-&-Crash-Course) provides a good introduction.
 
-- [Angular 8 Tutorial](https://coursetro.com/posts/code/174/Angular-8-Tutorial-&-Crash-Course)
-- [Comparison of Angular, React, and Vue](https://www.codeinwp.com/blog/angular-vs-vue-vs-react/)
+Angular provides excellent support for the model-view-controller design pattern.  Models and controllers are written in TypeScript, views in HTML and CSS.  The source code can be structured to emphasize the design pattern, with the model in `src/model`, the views in `src/app/*/*.component.html` and `src/app/*/*.component.css`, and the controller in `src/app/*/*.component.ts` and `src/app/*.controller.ts`.  Furthermore, the ability to declare selectors for components makes it easy to decompose views into manageable pieces.
 
-Angular is used by Google, React by Facebook.  React is easier to learn, but Angular provides much better support than React for the model-view-controller design pattern.
+## Installing Angular
 
-Angular uses the `npm` package manager for JavaScript, which is included in the `Node.js` runtime support for JavaScript.  `npm` provides both a command-line client and an online database of public and paid-for private packages.
-
-## How to install Angular
-
-Download and install `Node.js` from <https://nodejs.org>.
+Download and install `Node.js` from <https://nodejs.org>.  `Node.js` supplies runtime support for JavaScript; it includes the `npm` package manager, which provides both a command-line client and an online database of public and paid-for private packages.
 
 Install `ng`, the Angular command-line client, by typing `npm install -g angular/cli`.
 
-## How to create a skeleton project
+## Creating a skeleton Angular project
 
-Create a project (in the current directory) by typing `ng new ProjectName`.
-
-View the project in browser by typing `cd ProjectName` and `ng serve -o&`.
-
-Open the `ProjectName` folder in Visual Studio Code.  The subfolder `src/app` contains code for the project's principal component:
+Create a project (in the current directory) by typing `ng new ProjectName`.  View the project in browser by typing `cd ProjectName` and `ng serve -o&`.  Open the `ProjectName` folder in Visual Studio Code.  The subfolder `src/app` contains code for the project's principal component:
 
 - app.component.html
 - app.component.css
 - app.component.ts (you can set the app's title here)
 
-## How to create a skeleton add-in
-
-Install `yo`, the Yeoman generator for Office add-ins, by typing `npm i generator-office`.  See <https://developer.microsoft.com/en-us/office/blogs/creating-office-add-ins-with-any-editor-introducing-yo-office/>.
-
-Type `yo office` to create a new project.  Respond to the `yo office` prompts as follows:
-
-- Project type: Office Add-in Task Pane project using Angular framework
-- Script type: Typescript
-- Name: ProjectName
-- Office application: Excel
+Alternatively, use the [Yeoman Office Generator](Yeoman.md) to create a skeleton project for an Office add-in.
 
 ## Angular command-line interface
 

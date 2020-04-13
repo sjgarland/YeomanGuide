@@ -1,17 +1,27 @@
-# Notes on Visual Studio
+# Notes on Visual Studio Code
 
-[Visual Studio Code](https://code.visualstudio.com/) (for the Mac and Windows), [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) (for Windows), and [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) all support TypeScript.  Visual Studio 2019 has a Community version that is free for use in small organizations.
+## Issues with Visual Studio Code
 
-Visual Studio Code is easier to use and seems to work better than Visual Studio 2019.  
+The indenter
 
-See [Issues with Visual Studio Code](../Issues/Tools.md##Visual-Studio-Code) and [Issues with Visual Studio 2019](../Issues/Tools.md##Visual-Studio-2019).
+- puts spaces on blank lines (which cause TSLint complaints)
+- changes the indentation level inside a long block comment
+- gets confused when function headers (and some other constructs) extend over several lines
 
-Extensions (e.g., the Emacs Friendly Keymap) can be added to many versions of Visual Studio.  
+The lint tool for code does not issue warnings about constructs that are legal in Javascript, but suspect in TypeScript.
 
-## Visual Studio tools
+- Missing parentheses in `if (x.isOK)` when `isOK` is declared by `isOK(): boolean` and not `get isOK(): boolean`
+- Missing `toString()` conversions
 
-Visual Studio Code uses the `tsc` compiler, which is configured by options specified in `tsconfig.json`.
+Some helpful additions:
 
-JavaScript files files that contain `export` and `import` statements are processed by a loader (e.g., `webpack` or `requirejs`) to package them for use in an HTML file.
+- A lint tool for HTML that catches errors such as misspelled instance variables.
+- The ability to bind often-used commands on the command palette to keystrokes.
+- A `Print` command on the `File` menu (that handles all text files, including `.ts`, `.html`, `.css`, and `.md`).
+- A debugger that provides easily understood information about exceptions (e.g., when the translation from TypeScript into JavaScript doesn't recognize an object's class).
+- Angular support with better error messages when an imported module is not listed in `app.module.ts`.
 
-Visual Studio has built-in support for [software version control](https://www.infoworld.com/article/3391203/version-control-track-the-who-what-and-when-of-software-changes.html) using Git.  See a useful [InfoWorld article](https://www.infoworld.com/article/3512975/6-git-mistakes-you-will-make-and-how-to-fix-them.html) for tips on using Git.
+Visual Studio Code uses a hidden cache that is hard to flush.  When refactoring code by changing `getKind()` to `get kind()`, the `build` command flagged an error on one of many occurrences of `f.kind`, reporting that `f.getKind` was not a function.  The problem eventually went away, but only after much time was wasted looking for its cause.
+
+The Windows version of Visual Studio Code does not provide support for debugging Office 365 add-ins.
+

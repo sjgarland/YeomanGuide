@@ -1,4 +1,4 @@
-# Issues concerning documentation
+# NOtes on Office 365 documentation
 
 ## Inadequate definitions (or unexplained jargon)
 

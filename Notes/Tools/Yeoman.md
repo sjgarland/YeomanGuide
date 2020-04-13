@@ -1,24 +1,26 @@
-# Notes on the Yeoman Office generator
+# Notes on the Yeoman Office Generator
 
-The [Yeoman Office generator](https://github.com/OfficeDev/generator-office) creates a [Node.js](https://nodejs.org) [Office Add-in](https://docs.microsoft.com/en-us/office/dev/add-ins/) project that can be managed with [Visual Studio Code](https://code.visualstudio.com/).
+The [Yeoman Office generator](https://github.com/OfficeDev/generator-office) provides tools for creating add-ins for Microsoft Office.  See <https://developer.microsoft.com/en-us/office/blogs/creating-office-add-ins-with-any-editor-introducing-yo-office/>.
 
-## Modifications to the Yeoman template
+## Installing Yeoman
 
-### Manifest
+Install `yo`, the Yeoman generator, by typing `npm i generator-office`.
 
-- Generated a new `Id`.
-- Changed the `ProviderName`, `DisplayName`, `Description`, `AppDomain`, `ShortStrings`, `LongStrings`, and `Icon` information.
+## Creating a skeleton add-inproject
 
-### Assets
+Type `yo office` to create a new project.  Respond to the `yo office` prompts as follows:
 
-- Renamed the `assets` directory to `images`.
-- Replaced the icons in this directory with new icons, including a 64px version that was recommended for the Macintosh.
-- Labeled the icons with their dimensions in pixels to clarify where each is used.
+- Project type: Office Add-in Task Pane project using Angular framework
+- Script type: Typescript
+- Name: ProjectName
+- Office application: Excel
 
-### app.component.html, app.component.ts
+## Issues with Angular
 
-Edited the contents.
+The generator does not provide adequate support for using Angular.  In particular, it does not generate an Angular project, in which commands like `ng generate component` would be available.
 
-### webpack.config.js
+Confusion also arises because of differences between using `npm start` in a Yeoman project and `ng serve` in an Angular project.
 
-Amended the `CopyWebPackPlugin` to include the `images` directory in the build.  Without this change, Excel was not able to find the icons listed in the manifest.
+The webpack configuration does not include the directory containing the images foe icons in the production build.  A `CopyWebPackPlugin` needs to be inserted by hand.
+
+See the *Issues* section of the [Yeoman GitHub repository](https://github.com/OfficeDev/generator-office) for further comments about the Office generator.

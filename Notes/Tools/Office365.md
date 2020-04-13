@@ -2,23 +2,10 @@
 
 ## Documentation
 
-[Office add-in documentation](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins)
-
-[Office add-in samples](https://github.com/officedev)
-
-[Excel add-in concepts](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/excel-add-ins-core-concepts)
-
-[Stack Overflow](http://stackoverflow.com/questions/tagged/office-js+API) hosts questions about Office 365 development.
-
-## Manifests
-
-Code in `manifest.xml` causes buttons to appear on one of Excel's command tabs: TabHome, TabInsert, TabPageLayoutExcel, TabFormulas, TabData, TabReview, TabView, TabDeveloper, TabAddIns, TabPrintPreview, TabBackgroundRemoval.
-
-This code begins with the following lines.
-
-    <ExtensionPoint xsi:type="PrimaryCommandSurface">
-    <!-- OfficeTab extends an existing tab.  CustomTab creates a new tab. -->
-        <OfficeTab id="TabFormulas">
+- [Office add-in documentation](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins)
+- [Office add-in samples](https://github.com/officedev)
+- [Excel add-in concepts](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/excel-add-ins-core-concepts)
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/office-js+API) hosts questions about Office 365 development.
 
 ## Style
 
@@ -51,3 +38,15 @@ Recommendations in <https://www.64notes.com/design/stop-helvetica-arial/>
 Use <http://transparent.imageonline.co/> to make the background transparent.
 
 Duplicate, rename, and resize each `png` file to create the required `icon-16.png`, `icon-32.png`, `icon-80.png`, as well as the recommended `icon-64.png` for Mac OS X.  Skip the other recommended, but optional sizes: 20px, 24px, 40px, 48px.
+
+## Issues with Microsoft Office 365 add-ins
+
+Microsoft provides very poor support for using the model-view-controller design pattern to develop add-ins.  It blurs the boundaries between the components of this pattern.
+
+Microsoft's architecture for COM add-ins is based on WPF, the Windows Presentation Framework.  In WPF, views are written in XAML, the Extensible Application Markup Language, and the behavior behind the views (i.e., the model and the controllers) is described using a combination of hand-written and compile-generated C# (or Visual Basic) code).
+
+Microsoft's architecture for Javascript add-ins is more cumbersome.  The behavior of a taskpane can be defined using the model-view-controller design pattern, but that approach cannot be extended to the entire add-in.
+
+- There is no good way for different tasks panes, or a task pane and a ribbon command, to interact with the same model.  Each task pane and ribbon command is processed in a separate process, and these processes do not share any state.
+- The view presented by the ribbon is defined in a single monolithic XML manifest.  This is a step backwards from the more flexible customizations possible with XAML.
+- The view presented by the ribbon is severely constrained, and using the manifest to describe that view is very tedious.  See a separate list of [comments about the manifest](../Issues/Manifest.md).

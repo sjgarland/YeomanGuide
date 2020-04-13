@@ -2,7 +2,7 @@
 
 These notes describe how to use Yeoman Guide over the web.
 
-Pending the availability of Yeoman Guide in Microsoft's AppSource, it is necessary to download the file `Yeoman Guide.xml` from this repository and then follow the instructions given here for the different versions of Excel.
+Pending the availability of Yeoman Guide in Microsoft's AppSource, it is necessary to download the file `yeomanguide.xml` from this repository and then follow the instructions given here for the different versions of Excel.
 
 ## Excel for the web
 

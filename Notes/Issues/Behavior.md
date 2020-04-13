@@ -1,4 +1,4 @@
-# Issues with add-in behavior
+# Notes on add-in behavior
 
 ## Major issues
 
