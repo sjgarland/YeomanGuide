@@ -7,7 +7,7 @@ Puzzles and problems await anyone who follows Microsoft's instructions for how t
 - The add-in's icon, which appears in Excel's _Home_ ribbon during testing, is missing when the add-in is deployed.
 - Angular features do not work when used to enhance the add-in's behavior.
 
-This guide shows how to fix these and other problems.  It transforms the sample add-in into Yeoman Guide, a fully functional add-in that illustrates how to use the features provided by Angular.  Yeoman Guide is an open source project hosted on [GitHub]((https://github.com/sjgarland/YeomanGuide).  It was created by [Stage One Software](https://stageonesoftware.com), the developers of the [Formula Forge](https://formulaforge.com) add-in for Excel.  
+This guide shows how to fix these and other problems.  It transforms the sample add-in into Yeoman Guide, a fully functional add-in that illustrates how to use the features provided by Angular.  Yeoman Guide is an open source project hosted on [GitHub](https://github.com/sjgarland/YeomanGuide).  It was created by [Stage One Software](https://stageonesoftware.com), the developers of the [Formula Forge](https://formulaforge.com) add-in for Excel.  
 
 ## Getting started
 
