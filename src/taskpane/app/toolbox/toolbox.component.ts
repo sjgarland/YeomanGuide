@@ -15,7 +15,7 @@ import { CommonModule } from "@angular/common";
   template: require("./toolbox.component.html"),
   styleUrls: []
 })
-export class ExcelInspectorComponent {
+export class ToolboxComponent {
 
   /** The current selection in the spreadsheet. */
   @Input() selectedRange: string;

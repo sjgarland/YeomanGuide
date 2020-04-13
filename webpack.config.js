@@ -12,7 +12,7 @@ module.exports = async (env, options) => {
     devtool: "source-map",
     entry: {
       polyfill:  "@babel/polyfill",
-      taskpane2: "./src/taskpane/taskpane2.ts",
+      taskpane:  "./src/taskpane/taskpane.ts",
       commands:  "./src/commands/commands.ts"
     },
     resolve: {
@@ -51,12 +51,12 @@ module.exports = async (env, options) => {
       new HtmlWebpackPlugin({
         filename: "taskpane.html",
         template: "./src/taskpane/taskpane.html",
-        chunks: ["polyfill", "taskpane2"]
+        chunks: ["polyfill", "taskpane"]
       }),
       new HtmlWebpackPlugin({
         filename: "taskpane2.html",
         template: "./src/taskpane/taskpane2.html",
-        chunks: ["polyfill", "taskpane2"]
+        chunks: ["polyfill", "taskpane"]
       }),
       new CopyWebpackPlugin([
         { to: "about.html",   from: "./src/commands/about.html"  },

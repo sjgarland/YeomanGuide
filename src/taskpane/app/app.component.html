@@ -1,4 +1,6 @@
 
+<div *ngIf="pane==='1'">
+
 <h2>Excel information</h2>
 
 <excel-inspector (selectionChanged)="onSelectionChanged()"></excel-inspector>
@@ -16,3 +18,16 @@
 <p class="center">
     <button class="large" (click)="onReset()">Reset</button>
 </p>
+
+</div>
+
+<div *ngIf="pane==='2'">
+    <toolbox></toolbox>
+</div>
+
+<div *ngIf="pane===0">
+    <h2>Pane not set</h2>
+    <p class="center">
+        <button class="large" (click)="onReset()">Reset</button>
+    </p>
+</div>

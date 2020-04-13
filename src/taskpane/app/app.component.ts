@@ -3,7 +3,7 @@
 * Copyright 2020 (c) Stage One Software.
 *-----------------------------------------------------------------*/
 
-import { Component } from "@angular/core";
+import { Component, OnInit, ElementRef, Inject, Input } from "@angular/core";
 // eslint-disable-next-line no-unused-vars
 import { CommonModule } from "@angular/common";
 /* global localStorage, require, window */
@@ -12,22 +12,40 @@ import { CommonModule } from "@angular/common";
   selector: "app-home",
   template: require("./app.component.html")
 })
-export default class AppComponent {
+export default class AppComponent implements OnInit {
 
-  aboutClicks = '0';
-  helpClicks = '0';
-  inspectorClicks = '0';
-  toolboxClicks = '0';
-  selectionClicks = '0';
+  @Input() pane: string;
+
+  aboutClicks: string;
+  helpClicks: string;
+  inspectorClicks: string;
+  toolboxClicks: string;
+  selectionClicks: string;
   
   /**
    * Constructs an AppComponent.
    * 
+   * Sets `this.pane` to the value `v` supplied for `pane` in the selector
+   * `<app-home pane="v">`.  Displays the Inspector pane when `this.pane == 1`
+   * and the Toolbox pane when `this.pane == 2`.
+   * 
+   * Angular will not initialize `this.pane`, even though it is annotated with
+   * `@Input()`, because `taskpane.ts` and `taskpane2.ts` are not Angular
+   * components.  Instead, this constructor explicitly extracts the value
+   * supplied for `pane` in the `<app-home>` selector.
+   */
+  constructor(@Inject(ElementRef) e: ElementRef) {
+    this.pane = e.nativeElement.getAttribute('pane')
+  }
+
+  /**
+   * Initializes this component.
+   * 
    * Retrieves click counts from `localStorage`.  Updates the count of how many times
-   * this constructor has been called.  Attaches an event listener to `localStorage` to
+   * this component has been created.  Attaches an event listener to `localStorage` to
    * detect changes in click counts.
    */
-  constructor() {
+  ngOnInit() {
     this.update();
     let clicks = Number.parseInt(this.inspectorClicks) + 1;
     this.inspectorClicks = clicks.toString();
