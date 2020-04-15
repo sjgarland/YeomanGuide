@@ -13,7 +13,7 @@ This guide shows how to fix these and other problems.  It transforms the sample 
 
 We get started by using the [Yeoman generator for Office add-ins](https://github.com/OfficeDev/generator-office) to create a new project named YeomanGuide.
 
-```
+```bash
     ? yo office
 
          _-----_     ╭──────────────────────────╮
@@ -31,12 +31,14 @@ We get started by using the [Yeoman generator for Office add-ins](https://github
     ? What do you want to name your add-in? YeomanGuide
     ? Which Office client application would you like to support? Excel
 ````
+
 Then we enter the project directory, start Excel with the newly generated add-in,
 
-```
+```bash
     ? cd YeomanGuide
     ? npm start
 ```
+
 and click the `Show Taskpane` button that appears at right the end of Excel's `Home` ribbon to display the Contoso Task Pane.  (Contoso is a fictional company used by Microsoft in its examples.)
 
 ## Redoing the task pane
@@ -49,6 +51,7 @@ We simplify the Contoso Task Pane and provide a clearer explanation of what its 
          <p class="ms-font-l">Click <b (click)="colorRange()">here</b> to highlight your selection.</p>
      </main>
 ```
+
 and dividing the original `run` method in `app.component.ts.ts` into two methods, one to find the selected range and another to set its color.
 
 ```typescript
@@ -104,3 +107,4 @@ Modifying `webpack.config.js` to include the assets directory in the production 
 - Office pitfalls
   - State not shared by taskpanes, commands
   - Slow response to opening windows and dialogs from commands.  Works better in taskpane.
+  
