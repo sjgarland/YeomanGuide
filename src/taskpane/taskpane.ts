@@ -6,6 +6,7 @@
  * See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+import 'core-js/es7/reflect';
 import "zone.js"; // Required for Angular
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 // eslint-disable-next-line no-unused-vars
