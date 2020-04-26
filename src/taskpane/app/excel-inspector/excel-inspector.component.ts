@@ -86,7 +86,7 @@ export class ExcelInspectorComponent {
    * (e.g., in `findSelectedRange`, which runs in Excel's execution zone).
    * 
    * To exercise this care, we force the change to `this.selectedRange` and the
-   * omission of the `selectionChanged` event to occur in Angular's zone.  An
+   * emission of the `selectionChanged` event to occur in Angular's zone.  An
    * inferior alternative is to inject `ChangeDetectorRef` instead of `NgZone`
    * in the constructor and to use `this changeDetectorRef.detectChanges()` here
    * instead of `this.ngZone.run`.  However, this does not do enough: it makes
