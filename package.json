@@ -60,7 +60,7 @@
     "office-addin-dev-certs": "^1.4.15",
     "office-addin-lint": "^1.0.19",
     "office-addin-prettier-config": "^1.0.12",
-    "serialize-javascript": ">=2.1.1",
+    "serialize-javascript": ">=3.1.0",
     "source-map-loader": "^0.2.4",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
