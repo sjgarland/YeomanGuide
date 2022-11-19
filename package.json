@@ -53,7 +53,7 @@
     "eslint-config-office-addins": "^1.0.14",
     "file-loader": "^4.3.0",
     "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "lodash-es": ">=4.17.21",
     "office-addin-cli": "^1.0.7",
     "office-addin-debugging": "^3.0.23",
@@ -65,7 +65,7 @@
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.10.3"
   },
   "prettier": "office-addin-prettier-config"
