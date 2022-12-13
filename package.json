@@ -27,7 +27,7 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
-    "@angular/cli": "^9.1.1",
+    "@angular/cli": "^9.1.15",
     "@angular/common": "^9.1.1",
     "@angular/compiler": "^9.1.1",
     "@angular/core": "^11.0.5",
