@@ -54,7 +54,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
-    "lodash-es": ">=4.17.21",
+    "lodash-es": ">=4.17.23",
     "office-addin-cli": "^1.0.7",
     "office-addin-debugging": "^3.0.23",
     "office-addin-dev-certs": "^1.4.15",
